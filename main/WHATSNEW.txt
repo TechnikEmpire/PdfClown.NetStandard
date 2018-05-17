@@ -1,0 +1,239 @@
+WHATSNEW
+PDF Clown Project [README.html] > 
+
+
+Project version: 0.1.2 - WHATSNEW revision: 0 (2013-02-04)
+
+---------------
+Introduction
+---------------
+This is a list of highlights about major changes occurred to the PDF Clown Project.
+
+
+---------------
+Version 0.1.2
+---------------
+Release date: 2013-02-04
+Backward compatibility: false
+
+This release [https://pdfclown.wordpress.com/2011/12/09/waiting-for-pdf-clown-0-1-2-release/] enhances several base structures, providing fully automated object change tracking and object cloning (allowing, for example, to copy page annotations and Acroform fields). It adds support to video embedding, article threads, page labels and several other functionalities.
+
+ * [add] Primitive object model enhancements: see objects namespace.
+ * [add] Advanced object cloning and traversal: see objects namespace
+ * [add] Article threads: see documents.Articles, documents.interaction.navigation.page namespace
+ * [add] Page labels: see documents.interaction.navigation.page.PageLabel
+ * [add] Content transparency: see documents.contents.BlendModeEnum, documents.contents.ExtGState
+ * [add] Text line alignment and image inlining: see documents.contents.composition.BlockComposer
+ * [add] Multimedia: see documents.interaction.annotations.Screen, documents.interchange.multimedia namespace
+ * [add] File references: see files.FileIdentifier, documents.files namespace
+
+---------------
+Version 0.1.1
+---------------
+Release date: 2011-11-14
+Backward compatibility: false
+
+This release [http://pdfclown.wordpress.com/2011/04/12/waiting-for-pdf-clown-0-1-1-release/] adds support to optional/layered contents, text highlighting, metadata streams (XMP), Type1/CFF font files, along with primitive object model and AcroForm fields filling enhancements.
+
+Lots of minor improvements have been applied too.
+
+ * [add] Primitive object model: see objects namespace (PdfObject, PdfObjectWrapper, PdfSimpleObject, PdfReal).
+ * [add] Optional/layered contents: see documents.contents.layers namespace
+ * [add] Text highlighting: see tools.TextExtractor, annotations.TextMarkup
+ * [add] AcroForm fields filling: see documents.interaction.forms namespace
+ * [add] Metadata streams (XMP): see documents.interchange.metadata.Metadata, PdfObjectWrapper.get/setMetadata(Metadata)
+ * [add] Type1/CFF font files support: see fonts.CffParser
+ * [add] File configuration: real number formatting (see files.File.Configuration)
+ * [add] Page boxes: see documents.Page (get/setArtBox(Rectangle2D), get/setBleedBox(Rectangle2D), get/setCropBox(Rectangle2D), get/setTrimBox(Rectangle2D))
+ * [add] PostScript-based parsers: see util.parsers.PostScriptParser, tokens.BaseParser, tokens.FileParser, documents.contents.tokens.ContentParser
+
+---------------
+Version 0.1.0
+---------------
+Release date: 2011-02-24
+Backward compatibility: false
+
+This release introduces support to cross-reference-stream-based PDF files (as defined since PDF 1.5 spec) along with page rendering and printing [http://pdfclown.wordpress.com/2010/09/23/waiting-for-pdf-clown-0-1-release/]: a specialized tool provides a convenient way to convert PDF pages into images (aka rasterization).
+
+Lots of minor improvements have been applied too.
+
+ * [add] Page rendering and printing: document model (see documents namespace), content stream model (see documents.contents.objects namespace) and content scanner (see documents.contents.ContentScanner) have been revised and expanded to support an easy-to-use rasterization tool (see tools.Renderer). Color spaces (see documents.contents.colorSpaces namespace) and functions (see documents.functions namespace) have been expanded to integrate the rasterization functionality. NOTE: the implementation of these functionalities must be currently considered at pre-alpha stage (next releases will fill the gaps).
+ * [add] Cross reference streams (see tokens namespace).
+ * [add] Page management: the dedicated tool has been furtherly improved, now even supporting document splitting on maximum file size (see tools.PageManager)
+ * [add] Version compatibility check: document version can be automatically managed (see documents.Document.getConfiguration().get/setCompatibilityMode())
+
+---------------
+Version 0.0.8
+---------------
+Release date: 2010-08-21
+Backward compatibility: false
+
+This release is focused on text extraction [http://pdfclown.wordpress.com/2010/01/02/upcoming-0-0-8-whats-going-to-be-new/] support: a specialized tool provides, along with plain-text extraction, advanced functionalities such as full graphic state of extracted text (font, font size, text color, text rendering mode, text position...), text filtering by area, text grouping and sorting.
+
+Lots of minor improvements have been applied too.
+
+ * [add] Text extraction: font model (see documents.contents.fonts namespace), content stream model (see documents.contents.objects namespace) and content scanner (see documents.contents.ContentScanner) have been revised and expanded to support an advanced text extraction tool (see tools.TextExtractor)
+ * [add] Named objects (e.g. destinations) support: objects can be identified by name (see objects.PdfNamedObjectWrapper and its subclasses, objects.NameTree and its subclasses)
+ * [add] File overwrite: modified files can be saved directly over themselves (see files.File.save())
+ * [add] Version setting: document version can be freely set (see documents.Document.get/setVersion())
+
+---------------
+Version 0.0.7
+---------------
+Release date: 2009-01-02
+Backward compatibility: false
+
+This release expands the support to interactive features: actions (e.g. go-to actions, javascripts, transitions...) annotations (e.g. file attachments, links, notes, widgets...), acroforms, page-level navigation (transitions), improved document-level navigation (destinations), file specifications...
+
+Path drawing model has been implemented, along with enhanced content scanning.
+
+ * [add] Actions (see documents.interaction.actions.*)
+ * [add] Annotations (see documents.interaction.annotations.*)
+ * [add] Acroform (see documents.interaction.forms.*)
+ * [add] Page-level navigation (see documents.navigation.page.*)
+ * [add] Document-level navigation (see documents.navigation.document.*)
+ * [add] File specifications (see documents.fileSpecs.*)
+ * [add] Path drawing (see documents.contents.composition.PrimitiveFilter, documents.contents.objects.*)
+ * [fix] Bugfixes to 0.0.6 version:
+  * [fix:1909704] Symptom: case-insensitive programming languages experience namespace collision. Cause: some classes (ColorSpaces, Fonts, XObjects) had names equivalent to subnamespaces (colorSpaces, fonts, xObjects). See: documents.contents.ColorSpaceResources/FontResources/XObjectResources: namespace collision is now resolved.
+  * [fix:0.0.6:1:SC] Symptom: after a file-system file is opened it keeps being locked undefinitely. Cause: lack of explicit disposal. See: files.File.close()/.Dispose(): file lock is now appropriately released on object disposal.
+
+---------------
+Version 0.0.6
+---------------
+Release date: 2008-05-01
+Backward compatibility: false
+
+This release is focused upon Unicode support, at both content-stream level (i.e. page text) and document level (i.e. metadata text); it particularly implies the explicit encoding support by font objects and the reimplementation of the string object model to ensure a robust treatment of encoding matters.
+
+Other relevant enhancements involve content composition (enriched by the introduction of barcode support, paragraph-level horizontal alignment, etc.) and page management (facilitated by the introduction of a specialized tool).
+
+ * [add] Unicode support (see documents.contents.fonts.Font, documents.contents.fonts.OpenTypeFont, objects.PdfString, objects.PdfTextString)
+ * [add] Barcode entities (see documents.contents.entities.Barcode, documents.contents.entities.EAN13Barcode): this barcode model (currently limited to EAN13 codes) will be progressively extended with the support of the most widespread types.
+ * [add] Page management tool (see tools.PageManager): facilitates operations on pages (merge, split, etc.).
+ * [change] String object model (see objects.PdfString, objects.PdfTextString, objects.PdfDate): thoroughly enhanced data representation (rigorous partition between low-level byte sequences and their high-level representation as font-encoded strings (content stream context), text strings (document context), dates, etc.)
+ * [fix] Bugfixes to 0.0.5 version:
+  * [fix:1909707:AH] Symptom: validation failure. Cause: invalid end-of-line marker for stream objects. See: objects.PdfStream.writeTo(IOutputStream): end-of-line markers are now correct.
+  * [fix:0.0.5:1:SC] Symptom: stream objects encoded with multiple filters fail to be accessed. Cause: failure dealing with filter chains. See: objects.PdfStream.getBody(boolean): stream filter chains are now treated correctly.
+
+---------------
+Version 0.0.5
+---------------
+Release date: 2007-12-12
+Backward compatibility: false
+
+This release is focused upon consolidating and simplifying the functionalities introduced in the previous release. Particularly, content reuse and composition have been further improved -- for example: page conversion into reusable forms, automation of boiler-plate activities such as resources management, a new ready-to-use tool for easy content stamping and watermarking...
+
+ * [add] Content stamping and watermarking (see tools.PageStamper): greatly simplified content insertion on the background and foreground of existing pages.
+ * [add] Content resources management (see documents.contents.composition.PrimitiveFilter): fonts, color spaces, external objects are directly managed by the application without user intervention.
+ * [add] Content reuse (see documents.contents.IContentEntity, documents.contents.IContentContext and their implementations (documents.Page, documents.contents.entities.Entity, documents.contents.xObjects.FormXObject)): harmonized content abstraction allows elegant reuse of contents, independently from their actual source.
+ * [change] Primitive composition (see documents.contents.composition.PrimitiveFilter): improved external objects and text composition
+ * [fix] Bugfixes to 0.0.4 version:
+  * [fix:0.0.4:1] Symptom: the smallest PDF files fail to be loaded. Cause: less-than-1024-byte-long PDF files caused the pointer to fall outside the available data range. See: tokens.Parser.retrieveXRefOffset(long): the smallest PDF files are now supported.
+  * [fix:0.0.4:2] Symptom: inline image objects fail to instantiate properly. Cause: operation operator was erroneously set to null. See: objects.InlineImageHeader(List<PdfDirectObject>): instantiation is now successful.
+  * [fix:0.0.4:3] Symptom: inline image objects are corrupted. Cause: serialization syntax was corrupted by a missing new-line symbol. See: objects.InlineImage.writeTo(IBuffer): serialization is now valid.
+  * [fix:0.0.4:4] Symptom: the hexadecimal content of PdfHex lacks its first character. Cause: the parsing algorithm skipped after the first character, inadvertently overlooking it. See: tokens.Parser.moveNext(): hexadecimal strings are now parsed correctly.
+  * [fix:0.0.4:5] Symptom: opening the modified file with a viewer such as Adobe Reader, a "Repair" dialog box is shown to notify the malformation. Cause: existing "Prev" entry inside the trailer dictionary was not handled for deletion despite the xref table had been consolidated into a single section. See: tokens.Writer.writeStandard(): files with original multiple-section cross-reference tables are now handled correctly.
+
+---------------
+Version 0.0.4
+---------------
+Release date: 2007-09-15
+Backward compatibility: false
+
+This release concentrates on content stream modelling. It implements the 2nd (and final) level of the content stream model (graphics object level [PDF:1.6:4.1], i.e. aggregation of operations within corresponding compound objects like text, path, shading etc.). It also provides a full-fledged support to graphics state scanning.
+
+Although this portion is architecturally complete, the content stream model is still partial as it implements only the main content objects (over 40 new classes, distributed among operations and composite (graphics) objects like Text, InlineImage and so on): remaining content objects are temporarely treated as generic Operation objects, waiting for being progressively implemented in the next releases.
+
+NOTE: the 1st level of the content stream stack (operation level [PDF:1.6:3.7.1], i.e. aggregation of operands within corresponding atomic objects known as operations), is available since version 0.0.2.
+
+ * [add] 2nd-level content stream model (see documents.contents.Contents, documents.contents.ContentScanner, documents.contents.objects.*): the 2nd level of the content stream model (composite objects, like Text, InlineImage and so on) has been implemented, completing the object-oriented architecture of the content stream model.
+ * [add] Graphics state (see documents.contents.ContentScanner.GraphicsState): comprehensive support to graphics- and text-state parameters within content streams has been implemented, providing state transition management through scanning of graphics- and text-state operations
+ * [add] Named destinations (see documents.interaction.Destinations, documents.Names, objects.PdfNameTree).
+ * [add] Page formats (see documents.PageFormat): new standard size formats (ANSI series and Arch series).
+ * [add] Shortcut methods for common tasks (see documents.contents.entities.Image.get(String), documents.contents.fonts.OpenTypeFont.OpenTypeFont(Document,String), files.File(.File(String), .register(PdfDataObject), .writeTo(String,SerializationModeEnum)))
+ * [add] Block composition (see documents.contents.composition.BlockFilter): line break character management (see showText(String)).
+ * [change] Color spaces (see documents.contents.colorSpaces): improved model and simplified use (see documents.contents.composition.PrimitiveFilter).
+ * [change] Primitive composition (see documents.contents.composition.PrimitiveFilter): interface harmonization with the new content stream model; improved text (showText(...) anchoring, no more enclosing beginText()/endText() invocations...), colors (implicit color space selection when passing a color to setFillColor() and setStrokeColor()) and xobjects (showXObject(...) anchoring and rotation) support.
+
+---------------
+Version 0.0.3
+---------------
+Release date: 2007-05-05
+Backward compatibility: false
+
+This release introduces comprehensive font management (OpenType/TrueType and Standard Type 1 font collection) and positional typesetting facilities.
+
+ * [add] Font management (see documents.contents.fonts namespace): OpenType/TrueType and Standard Type 1 collection are now supported for embedding
+ * [add] Positional typesetting (see documents.contents.composition.BlockFilter): contents (styled text, images etc.) can now be constrained within limited areas on the page canvas for (both horizontal and vertical) alignment purposes.
+ * [add] Escape characters management (see objects.PdfLiteral, objects.PdfName): special characters (e.g. "(") are now automatically managed.
+ * [change] Project subnamespaces have been reorganized to harmonize with the abstract design.
+ * [change] Page format definition (see documents.PageFormat): now it's much more flexible (orientation) and complete (standard paper formats).
+
+---------------
+Version 0.0.2
+---------------
+Release date: 2006-12-19
+Backward compatibility: false
+
+The main objective of this release is to enable serialization and deserialization of PdfStream objects and consequently to allow parsing and editing of content streams. In order to reach this result it introduces stream filters (encoding/decoding), optimized byte streaming interfaces, enhanced indirect object management and minor bug fixes, along with the usual pervasive revision of the entire codebase.
+
+ * [add] Content streaming support to content stream parsing and editing (see contentStreaming.ContentStream, contentStreaming.ContentBuilder, contentStreaming.serialization namespace, contentStreaming.operations namespace)
+ * [add] Filters (see serialization.filters namespace):
+  * [add] common abstract filter (see Filter class)
+  * [add] support to zlib/deflate (see FlateFilter class)
+ * [add] Contextualization helper methods (see documentStructure.Document.contextualize(...)/decontextualize(...), objects.IPdfIndirectObject.delete(), objects.PdfObjectWrapper.delete())
+ * [add] Support to page insertion and removal, and multiple page addition, insertion and removal (see documentStructure.Pages)
+ * [change] Byte streaming simplification and adaptation to support filters
+ * [change] Serialization optimizations (see serialization.Parser,Reader,Writer)
+ * [change] Stream object adaptation to support transparent filtering (see objects.PdfStream)
+ * [change] Indirect objects management reimplementation (see objects.PdfReference, objects.PdfIndirectObject, fileStructure.IndirectObjects)
+ * [change] Null object reimplementation (see objects.PdfNull)
+ * [change] New documentation contents available in the PDF Clown Project User Guide [doc/userGuide.pdf].
+ * [fix] Some minor flaws affected 0.0.1 version:
+  * [fix] Symptom: corrupted serialization of PDF files containing "#20" (or whatever else) escaped character in PdfName objects. Cause: during deserialization parsing, PdfName objects were unescaped, without escaping them back on the following serialization (corrupted PdfName objects). See: Parser.moveNext(): PdfName hexadecimally-coded characters are now left unchanged for consistency reasons (unescaped string can be retrieve using PdfName.toString() method).
+  * [fix] Symptom: PdfStream corrupted body. Cause: File.resolve(dictionary.get(PdfName.Length) caused parsing stream to unexpectedly shift its current position to an undefined location. See: Parser.parsePdfObject(): current pointer position is saved anytime the method calls external objects. 
+  * [fix] Symptom: phantom PdfIndirectObject state modifications. Cause: in case of late update, PdfIndirectObject objects didn't work consistently because in the meantime they could be instantiated multiple times, forking the same indirect object into independent, redundant states. See: Parser.parsePdfObject(): now only the PdfReference object is instantiated instead of its PdfIndirectObject counterpart.
+
+---------------
+Version 0.0.1
+---------------
+Release date: 2006-11-21
+Backward compatibility: false
+
+ * [add] Formalized I/O support (see byteStreaming namespace)
+ * [change] Primitive objects (see objects namespace):
+  * [add] null object (PdfNull), long integer object (PdfLong)
+  * [add] indirect object interface (IPdfIndirectObject)
+  * [change] real object (PdfReal): from float- to double-typed value
+  * [change] wrapper object (PdfObjectWrapper): containment simplification and minor enhancements
+ * [change] Color spaces (see contentStreaming.colorSpaces namespace):
+  * [add] partial support to device-independent color spaces (colorSpaces.CIEBasedColorSpace and descendants, colorSpaces.ICCBasedColorSpace)
+  * [add] factory methods (Wrap())
+  * [change] device color spaces reimplementation
+
+---------------
+Version 0.0.0
+---------------
+Release date: 2006-09-17
+Backward compatibility: true
+
+ * [add] Serialization/Deserialization (see serialization namespace)
+ * [add] Primitive objects (see objects namespace)
+ * [add] File management (see fileStructure namespace)
+ * [add] Document management (see documentStructure namespace)
+ * [add] Page management (see documentStructure namespace)
+ * [add] Metadata (see metadata.Information)
+ * [add] Bookmarks (see interaction.navigation.documentLevel)
+ * [add] Viewer preferences (see interaction.ViewerPreferences)
+ * [add] Content stream management (see contentStreaming namespace)
+
+---------------
+Resources
+---------------
+ * Navigation:
+  * Current directory [.]: browse current section contents
+  * Parent section [README.html]: move to parent section
+  * Previous section [CREDITS.html]: move to previous section
+  * Next section [ISSUES.html]: move to next section
+  * INDEX [INDEX.html]: move to the distribution map

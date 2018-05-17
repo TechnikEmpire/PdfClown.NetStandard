@@ -1,0 +1,151 @@
+<project name="pdfclown.samples.gui"
+  basedir="."
+  default="package"
+  >
+  <property name="src.dir"
+    location="src"
+    />
+  <property name="build.dir"
+    location="build"
+    />
+  <property name="compile.dir"
+    location="${build.dir}/classes"
+    />
+  <property name="package.dir"
+    location="${build.dir}/package"
+    />
+  <property name="javadoc.dir"
+    location="${build.dir}/docs/api"
+    />
+
+  <property name="classpath"
+    value="../pdfclown.lib/build/package/pdfclown.jar"
+    />
+
+  <property name="package.name"
+    value="pdfclown-samples-gui"
+    />
+  <property name="project.version"
+    value="0.1.2"
+    />
+  <property name="project.stage"
+    value="Beta"
+    />
+  <property name="project.version.ext"
+    value="${project.version}-${project.stage}"
+    />
+  <property name="project.title"
+    value="PDF Clown GUI Samples"
+    />
+  <property name="project.vendor"
+    value="Stefano Chizzolini"
+    />
+  <property name="project.namespace.root"
+    value="org.pdfclown.samples.gui"
+    />
+  <property name="project.mainClass"
+    value="${project.namespace.root}.SampleViewer"
+    />
+
+  <property name="package.file"
+    value="${package.dir}/${package.name}.jar"
+    />
+
+  <target name="clean"
+    description="Generated content clean up"
+    >
+    <delete dir="${compile.dir}"/>
+    <delete dir="${package.dir}"/>
+  </target>
+
+  <target name="compile"
+    description="Source compilation"
+    >
+    <mkdir dir="${compile.dir}"/>
+    <javac
+      classpath="${classpath}"
+      debug="true"
+      destdir="${compile.dir}"
+      srcdir="${src.dir}"
+      />
+  </target>
+
+  <target name="javadoc"
+    description="API Reference generation"
+    >
+    <mkdir dir="${javadoc.dir}"/>
+    <delete
+      includeemptydirs="true"
+      >
+      <fileset
+        dir="${javadoc.dir}"
+        includes="**/*"
+        />
+    </delete>
+    <javadoc
+      author="true"
+      charset="UTF-8"
+      classpath="${classpath}"
+      destdir="${javadoc.dir}"
+      doctitle="${project.title} ${project.version}&lt;br/&gt;API Reference"
+      overview="${src.dir}/overview.html"
+      sourcepath="${src.dir}"
+      use="true"
+      version="true"
+      windowtitle="${project.title} ${project.version} API Reference"
+      >
+      <header><![CDATA[<b>${project.title}</b><br><small>${project.version}</small>]]></header>
+      <bottom><![CDATA[<small><a href="http://www.pdfclown.org">Project home page</a><br><br>Copyright &#169; 2006-2013 <a href="http://www.stefanochizzolini.it/">${project.vendor}</a>. Some Rights Reserved.<br/>This documentation is available under the terms of the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a>.</small>]]></bottom>
+      <link href="http://docs.oracle.com/javase/6/docs/api/"/>
+      <link href="../../../../pdfclown.lib/build/docs/api"/>
+    </javadoc>
+    <copy file="../res/styles/javadoc.css" tofile="${javadoc.dir}/stylesheet.css" overwrite="true" />
+  </target>
+
+  <target name="package"
+    depends="compile"
+    description="Package generation"
+    >
+    <mkdir dir="${package.dir}"/>
+    <jar destfile="${package.file}">
+      <fileset dir="${compile.dir}">
+        <include name="**/*.class"/>
+      </fileset>
+      <manifest>
+        <attribute name="Specification-Title"
+          value="${project.title}"
+          />
+        <attribute name="Specification-Version"
+          value="${project.version}"
+          />
+        <attribute name="Specification-Vendor"
+          value="${project.vendor}"
+          />
+        <attribute name="Implementation-Title"
+          value="${project.namespace.root}"
+          />
+        <attribute name="Implementation-Version"
+          value="${project.version}"
+          />
+        <attribute name="Implementation-Vendor"
+          value="${project.vendor}"
+          />
+        <attribute name="Main-Class"
+          value="${project.mainClass}"
+          />
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run"
+    depends="package"
+    description="Package execution"
+    >
+    <java
+      fork="true"
+      jar="${package.file}"
+      >
+      <jvmarg value="-Xbootclasspath/a:${classpath}:${package.file}"/>
+    </java>
+  </target>
+</project>

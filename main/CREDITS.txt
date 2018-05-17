@@ -1,0 +1,58 @@
+CREDITS
+PDF Clown Project [README.html] > 
+
+
+Project version: 0.1.2 - CREDITS revision: 0 (2013-02-04)
+
+---------------
+Introduction
+---------------
+These are the people who contributed to PDF Clown Project.
+
+Along with herein-mentioned people, I'd like also to thank all the other guys who have sent their comments to my email box, to the public forums [http://sourceforge.net/projects/clown/forums] and to the blog [http://pdfclown.wordpress.com]: I really appreciate your interest in the project! Please apply your requests to the public forums and blog whenever possible, so that others may benefit from knowing about them.
+
+
+---------------
+CREDITS list
+---------------
+NOTE: bracketed tags (e.g. "[DEV:HAa]") may be used within the source code to reference people herein mentioned.
+
+---------------
+team
+---------------
+ * Stefano Chizzolini [SC], M.Econ., Independent Software Consultant, url: http://www.stefanochizzolini.it [http://www.stefanochizzolini.it]
+  * Project management (0.0.0+)
+  * Analysis (0.0.0+)
+  * Design (0.0.0+)
+  * Development (0.0.0+)
+
+---------------
+contributor
+---------------
+ * Manuel Guilbault [MG], email: manuel{dot}guilbault{at}gmail{dot}com [mailto:manuel{dot}guilbault{at}gmail{dot}com]
+  * Code development (0.1.2)
+ * Andreas Pinter [AP], url: http://sourceforge.net/users/drunal/ [http://sourceforge.net/users/drunal/]
+  * Bug fixing (0.1.2)
+ * Dirk Lellinger [DL], email: dlellinger{at}users{dot}sourceforge{dot}net [mailto:dlellinger{at}users{dot}sourceforge{dot}net]
+  * Bug fixing (0.1.1)
+ * Joshua Tauberer [JT], Ph.D., Founder of Civic Impulse LLC, url: http://razor.occams.info [http://razor.occams.info]
+  * Code development (0.1.0)
+ * J.James Jack [3J], Ph.D., Senior Consultant at Symyx Technologies UK Ltd., email: james{dot}jack{at}symyx{dot}com [mailto:james{dot}jack{at}symyx{dot}com]
+  * Code development (0.0.8)
+ * Jean-Claude Truy [JCT], email: jctruy{at}gmail{dot}com [mailto:jctruy{at}gmail{dot}com]
+  * Bug fixing (0.0.8)
+ * Andreas Hansson [AH], email: adron{at}users{dot}sourceforge{dot}net [mailto:adron{at}users{dot}sourceforge{dot}net]
+  * Bug fixing (0.0.6,0.0.7)
+ * Haakan Aakerberg [HAa], url: http://www.ongoing.se/ [http://www.ongoing.se/]
+  * Bug fixing, suggestions (0.0.4,0.0.5)
+
+
+---------------
+Resources
+---------------
+ * Navigation:
+  * Current directory [.]: browse current section contents
+  * Parent section [README.html]: move to parent section
+  * Previous section [res/README.html]: move to previous section
+  * Next section [WHATSNEW.html]: move to next section
+  * INDEX [INDEX.html]: move to the distribution map

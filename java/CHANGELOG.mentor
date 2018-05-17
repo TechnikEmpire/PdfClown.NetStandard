@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<changeLog
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <description>
+    <db:para>This is a coarsely-grained record of major changes occurred specifically to the Java implementation of <db:emphasis role="strong">PDF Clown</db:emphasis>.</db:para>
+    <db:para>For common changes to the PDF Clown Project, please see <db:link xl:href="../main/WHATSNEW.html">WHATSNEW</db:link>.</db:para>
+  </description>
+  <tip>Change chronology of PDF Clown for Java</tip>
+  <entries>
+    <release version="0.0.8" date="2010-08-21" compatible="false">
+      <description>
+        <db:para>Migrated to <db:link xl:href="http://java.sun.com">Java 6 platform</db:link>.</db:para>
+      </description>
+    </release>
+  </entries>
+</changeLog>

@@ -1,0 +1,94 @@
+<chapter id="concepts">
+<title>Basic usage</title>
+
+<note>
+  <title>Note</title>
+  <para>The code fragments included in this chapter avoid to repeat, for the sake of succinctness, the declarations of already mentioned variables.</para>
+</note>
+
+<note>
+  <title>Release note</title>
+  <para>This chapter is in progress, lacking lots of useful tips that you may like to know; next documentation releases will expand the coverage. Please see the code samples available in the PDF Clown distribution for actually working examples [see Appendix A].</para>
+</note>
+
+<section>
+<title>Creating a new PDF instance</title>
+
+<programlisting>
+import org.pdfclown.documents.Document;
+import org.pdfclown.files.File;
+
+. . .
+
+// 1. File instantiation.
+File file = new File();
+
+// 2. Document retrieval.
+Document document = file.getDocument();
+
+// 3. Document manipulation.
+. . .
+
+// 4. File serialization.
+file.writeTo(
+  new java.io.File("MyFile.pdf"),
+  SerializationModeEnum.Standard
+  );
+</programlisting>
+
+<para>As you can see from the above sample, creating a new PDF instance is really simple:</para>
+<itemizedlist>
+<listitem>
+<para>1. <emphasis role="bold">File instantiation</emphasis>: this is the first operation you execute when creating a new PDF file. Then you can either manipulate directly the low-level <code>IndirectObjects</code> collection or (see next step) access its high-level representation (<code>Document</code>);</para>
+</listitem>
+<listitem>
+<para>2. <emphasis role="bold">Document retrieval</emphasis>: once a file has been instantiated, its corresponding Document can be retrieved in order to access the high-level model (document pages and so on).</para>
+</listitem>
+<listitem>
+<para>3. <emphasis role="bold">Document manipulation</emphasis>: once a document reference has been acquired, any high-level operation over your PDF instance can be done. We'll examine this point in the following samples.</para>
+</listitem>
+<listitem>
+<para>4. <emphasis role="bold">File serialization</emphasis>: once the file has been defined, it must be serialized in order to persist its data.</para>
+</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Indirect objects</title>
+
+<para>The following sample gets an indirect object (whose object number is '12') from the indirect objects collection of a file:</para>
+
+<programlisting>
+import org.pdfclown.files.File;
+import org.pdfclown.files.IndirectObjects;
+import org.pdfclown.object.PdfDataObject;
+import org.pdfclown.object.PdfIndirectObject;
+import org.pdfclown.object.PdfReference;
+
+. . .
+
+IndirectObjects indirectObjects = file.getIndirectObjects();
+PdfIndirectObject indirectObject = indirectObjects.get(12);
+PdfReference reference = indirectObject.getReference();
+PdfDataObject dataObject = indirectObject.getDataObject();
+</programlisting>
+
+<para>As <code>PdfReference</code> implements the same <code>IPdfIndirectObject</code> interface exposed by <code>PdfIndirectObject</code>, you can obtain the indirect object and data object associated to it:</para>
+
+<programlisting>
+import org.pdfclown.object.PdfDataObject;
+import org.pdfclown.object.PdfIndirectObject;
+import org.pdfclown.object.PdfReference;
+
+. . .
+
+PdfIndirectObject indirectObject = reference.getIndirectObject();
+PdfDataObject dataObject = reference.getDataObject();
+int objectNumber = reference.getObjectNumber();
+int generationNumber = reference.getGenerationNumber();
+</programlisting>
+
+<para>The <emphasis role="bold">object number</emphasis> is the unique identifier of each indirect object within the same file (as you saw in the previous sample, indirect objects are just accessed by object number from the <code>IndirectObjects</code> collection associated to the <code>File</code> object).</para>
+</section>
+
+</chapter>

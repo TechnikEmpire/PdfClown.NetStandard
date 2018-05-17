@@ -1,0 +1,253 @@
+<chapter id="Architecture">
+<title>Architecture</title>
+
+<para>PDF Clown aims at providing both a consistent, rigorous, intelligible implementation of the PDF specification and a rich multi-layered model that allows users to freely access PDF files from different levels of abstraction, in accordance to their coding requirements, style and skills.</para>
+
+<para>Differently from a lot of existing PDF software libraries, PDF Clown doesn't hide the native PDF syntax and semantics behind a simplistic abstraction layer focused towards a limited range of applicability; instead, it intends to exploit the full potential of the format, taming its complexity by smoothing some of its edges and wrinkles. From the user's point of view, being allowed to access the whole data comes necessarily to the cost of becoming accustomed to some concepts and intricacies of the PDF specification; that's not a drama, as the library is shipped along with lots of code samples and a growing documentation.</para>
+
+<para>Manipulation is typically accomplished through either file-level or document-level facilities (or a convenient combination of the two levels). File-level manipulation implies the use of low-level, primitive objects, giving the user a lot of flexibility along with the responsability of constructing proper semantic definitions; on the other hand, document-level manipulation implies the use of high-level, derivative, specialized objects, giving the user semantics constrained within a predefined (although freely-expandable) framework.</para>
+
+<section>
+<title>The layers</title>
+
+<para>The stacked architecture of PDF Clown follows the layout suggested by the official PDF Reference 1.6 published by Adobe Systems Inc.</para>
+
+<figure id="figure_layers">
+  <title>PDF Clown's layered architecture</title>
+  <mediaobject id="layers">
+    <imageobject>
+      <imagedata format="SVG" fileref="../../common/res/layers.svg" align="center" contentwidth="100%" width="50%"/>
+    </imageobject>
+  </mediaobject>
+</figure>
+
+<para>Each layer corresponds to a subnamespace within the <code>org.pdfclown</code> project namespace (see <xref linkend="figure_layers"/>):</para>
+<orderedlist>
+<listitem>
+<para><emphasis role="bold">Byte Layer</emphasis>: this is the lowest layer. It enables fine-grained access to the byte representation of a PDF instance. Its subnamespace is <code>bytes</code>. Its core interfaces are <code>IInputStream</code> and <code>IOutputStream</code>.</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Token Layer</emphasis>: this represents the micro-syntactic (lexical) components of a PDF instance. Its subnamespace is <code>tokens</code>. Its core classes are <code>Reader</code> (file deserialization) and <code>Writer</code> (file serialization).</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Object Layer</emphasis>: this represents the mid-syntactic components of a PDF instance. They are serialized by the token layer, bathed in the file layer and compose every concrete functional ("semantic") object available in the document layer. A user can alternatively manipulate them by direct access from the file layer, or by indirect access from the document layer. Their subnamespace is <code>objects</code>. Their core class is <code>PdfObject</code>, while their "bridging" classes are <code>PdfIndirectObject</code> (towards the file layer) and <code>PdfObjectWrapper</code> (towards the document layer).</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">File Layer</emphasis>: this represents the macro-syntactic structure of a PDF instance, governing the overall rules that constitute a well-formed PDF instance and bridging the document layer to the lower ones. Its subnamespace is <code>files</code>. Its core class is <code>File</code>.</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Document Layer</emphasis>: This is the semantic framework upon which contents are built, bringing primitive objects to functional context. Its subnamespace is <code>documents</code>. Its core class is <code>Document</code>.</para>
+<para>Upon the document layer a series of advanced features (interaction, interchange etc.) are built, the most prominent of which is the content sublayer.</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">Content (sub)Layer</emphasis>: this is the semantic sublayer that actually defines contents, deputed to manipulate the very graphical representation of the PDF instance. Its subnamespace is <code>documents.contents</code>. Its core class is <code>Contents</code>, which represents a content stream (a sequence of instructions describing the appearance of a page or other graphical entity).</para>
+</listitem>
+</orderedlist>
+
+<section>
+<title>An object across the layers</title>
+
+<para>In order to apply the aforementioned concepts to a practical example, the following diagram (see <xref linkend="figure_objectLayeredViews"/>) represents a Document object (the semantic root of a PDF instance as modelled by PDF Clown) as it's viewed across the layers:</para>
+<orderedlist>
+  <listitem><emphasis role="bold">Byte layer</emphasis> (raw PDF instance): the dotted box inside the PDF instance icon contains a sample data fragment that represents a Catalog Dictionary (root object);</listitem>
+  <listitem><emphasis role="bold">Token layer</emphasis> (lexical interpretation (parsing) of a PDF instance): the bytes of the Catalog Dictionary are aggregated in atomic items (lexemes);</listitem>
+  <listitem><emphasis role="bold">Object layer</emphasis> (data structures emerging from token aggregation): an indirect object pattern is recognized, so that a PdfIndirectObject is instantiated to incapsulate the Catalog Dictionary data;</listitem>
+  <listitem><emphasis role="bold">File layer</emphasis> (higher syntactic representation of a PDF instance in PDF Clown model): the PdfIndirectObject containing the Catalog Dictionary is arrayed among the others to represent the PDF instance structure;</listitem>
+  <listitem><emphasis role="bold">Document layer</emphasis> (semantic representation of a PDF instance in PDF Clown model): the Catalog Dictionary is encapsulated inside a Document object, which inherits from PdfObjectWrapper (bridge between the object layer and the document layer).</listitem>
+</orderedlist>
+
+<figure id="figure_objectLayeredViews">
+  <title>A document object as viewed across the PDF Clown's layers</title>
+  <mediaobject id="objectLayeredViews">
+    <imageobject>
+      <imagedata format="png" fileref="../../common/res/objectLayeredViews.png" align="center" width="250"/>
+    </imageobject>
+  </mediaobject>
+</figure>
+</section>
+</section>
+
+<section>
+<title>Byte layer: low-level I/O</title>
+
+<para><code>org.pdfclown.bytes</code> namespace provides the I/O interfaces and classes extensively used throughout the library to manipulate raw data (both as streams and as buffers).</para>
+<para><code>bytes.filters</code> subnamespace contains stream codecs used for data transformations, such as compression/decompression. They are tipically used by PdfStream objects to transparently manage their bodies.</para>
+</section>
+
+<section>
+<title>Token layer: serialization/deserialization</title>
+
+<para><code>org.pdfclown.tokens</code> namespace is deputed to manage the transitions from/to the serialized PDF form to/from the PDF Clown runtime form, that is between a PDF file and its representation within the PDF Clown's object model.</para>
+<para>The <code>Reader</code> class has the responsability to read data from an existing PDF file and convert it into its corresponding object representation, while the <code>Writer</code> class has the complementary responsability to convert the object representation into its corresponding PDF data and write it to a PDF file.</para>
+<para>Ordinary users shouldn't care about this namespace as these operations are transparently managed by PDF Clown itself.</para>
+</section>
+
+<section>
+<title>Object layer: the primitive objects</title>
+
+<para>Primitive objects are the basic bricks that constitute a PDF instance; PDF Clown implements them as follows:</para>
+
+<itemizedlist>
+<listitem>data objects:
+<itemizedlist>
+<listitem>by-value objects:
+<itemizedlist>
+<listitem>atomic objects:
+<itemizedlist>
+<listitem>PdfBoolean (boolean);</listitem>
+<listitem>PdfInteger (integer number), PdfReal (real number);</listitem>
+<listitem>PdfString (generic string, either literal or hexadecimal), PdfTextString (text, i.e. specialized textual string), PdfDate (date, i.e. date-formatted string);</listitem>
+<listitem>PdfName (name);</listitem>
+</itemizedlist>
+</listitem>
+<listitem>composite objects:
+<itemizedlist>
+<listitem>PdfArray (array);</listitem>
+<listitem>PdfDictionary (dictionary);</listitem>
+<listitem>PdfStream (stream);</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</listitem>
+<listitem>by-reference objects: PdfReference (indirect reference);</listitem>
+</itemizedlist>
+</listitem>
+<listitem>indirect objects: PdfIndirectObject.</listitem>
+</itemizedlist>
+
+<para>Data objects represent actual contents, whilst indirect objects are containers of data objects whose purpose is to allow them to be referenced by other (composite) data objects through <code>PdfReference</code> instances. For example, <xref linkend="figure_objectLayeredViews"/> shows a <code>PdfDictionary</code> that is contained by a <code>PdfIndirectObject</code> associated to a <code>PdfReference</code> identified by the tuple &lt;32,0&gt; (by the way: the first element (32) represents the unique object number, the second element (0) represents the generation number used for incremental updates).</para>
+<para>Both <code>PdfIndirectObject</code> and <code>PdfReference</code> implement the <code>IPdfIndirectObject</code> interface which handily exposes indirect object, reference and data object at the same time.</para>
+
+<section>
+<title>Object referencing</title>
+
+<para>Data objects can be combined either by value or by reference. In order to reference a data object (<code>PdfArray</code>, <code>PdfString</code>, <code>PdfDictionary</code>, and so on), you firstly need to encapsulate it within an indirect object (<code>PdfIndirectObject</code>), then you have to use its corresponding reference (<code>PdfReference</code>). Keep in mind this triplet (reference, indirect object, data object), as such relation is the most important of the entire PDF model!</para>
+
+<para>Referencing an object <emphasis role="italic">across multiple abstraction levels</emphasis> (e.g., a data-level object as a <code>PdfDictionary</code> that backs a document-level object as a <code>Pages</code> collection) is called in PDF Clown's jargon "<emphasis role="bold">deep referencing</emphasis>" or "vertical referencing".</para>
+
+<figure id="figure_baseObject">
+  <title>Deep referencing (both by-value and by-reference)</title>
+  <mediaobject id="baseObject">
+    <imageobject>
+      <imagedata format="png" fileref="../../common/res/baseObject.png" align="center" width="400"/>
+    </imageobject>
+  </mediaobject>
+</figure>
+
+<para>All the objects at document level (like a <code>Pages</code> collection) are derived from <code>PdfObjectWrapper</code>, which wraps a corresponding data object (like a <code>PdfDictionary</code>) either directly (by-value deep referencing) or indirectly (by-reference deep referencing). The wrapped object is exposed by the <code>baseObject</code> property: in case of indirect wrapping this property returns a <code>PdfReference</code> instance that points to a <code>PdfIndirectObject</code> which exposes the data object through the <code>dataObject</code> property.</para>
+
+<para>On the other hand, referencing an object <emphasis role="italic">within the same abstraction level</emphasis> (e.g., a <code>Page</code> that is associated to a <code>Pages</code> collection object) is called "<emphasis role="bold">shallow referencing</emphasis>" or "horizontal referencing".</para>
+
+<figure id="figure_objectReferences">
+  <title>Deep and shallow references (simplified view)</title>
+  <mediaobject id="objectReferences">
+    <imageobject>
+      <imagedata format="png" fileref="../../common/res/objectReferences.png" align="center" width="200"/>
+    </imageobject>
+  </mediaobject>
+</figure>
+
+</section>
+
+<section>
+<title>Object reuse</title>
+
+<para>PDF Clown tries to let you achieve a good deal of flexibility when it comes to data object reuse. Particularly, it performs the task of leveraging existing contents in two major ways:</para>
+
+<itemizedlist>
+<listitem>
+<para><emphasis role="bold">dynamic reuse</emphasis>: content reuse <emphasis role="italic">within the same PDF instance</emphasis>, performed exploiting the indirect reference functionality natively supported by PDF;</para>
+</listitem>
+<listitem>
+<para><emphasis role="bold">static reuse</emphasis>: content reuse <emphasis role="italic">from other PDF instances</emphasis>, performed cloning existing contents from a source file to your target file.</para>
+</listitem>
+</itemizedlist>
+
+<section>
+<title>Dynamic reuse</title>
+
+<para><emphasis role="bold">Dynamic reuse</emphasis> is the <emphasis role="italic">referencing of contents within the same PDF instance</emphasis>. It's accomplished through indirect object references (<code>PdfReference</code> class). As previously mentioned, each <code>PdfReference</code> points to a corresponding <code>PdfIndirectObject</code> which contains a corresponding data object. This way the same data object can be used multiple times across the PDF instance just referencing it. For example, an image could appear on several pages yet being defined just one time as an <code>ImageXObject</code> (by the way, an <code>ImageXObject</code> (which stands for "image external object") is a PdfStream bearing an image's data that can be referenced from content streams in order to be shown).</para>
+</section>
+
+<section>
+<title>Static reuse</title>
+
+<para><emphasis role="bold">Static reuse</emphasis> is the <emphasis role="italic">hard-copying of contents from an existing PDF instance to another</emphasis>. It's accomplished by PDF Clown through a file-level operation named "contextual cloning" that leverages the "deep referencing" or "vertical referencing" functionality described in the previous section. In order to activate such imported content at document level, it's then needed to define appropriate references among the objects within the same PDF instance to link them together ("shallow referencing" or "horizontal referencing") in a meaningful way. See <xref linkend="figure_objectReferences"/>.</para>
+
+<para>Each PDF instance represents an independent context. When a document-level object (e.g. a Page) is created within or imported into a PDF instance, it must be made aware of the context where it lives, so that it can silently perform context-bound operations without further client involvement. Context referencing at creation time is performed passing a document reference to the document-level object constructor, whilst in case of importing it's performed passing a document reference to the contextual cloning method of the document-level object.</para>
+<para>Eventually, behind the scenes a document reference degrades to a file reference, as File objects are the entities backing their respective Document objects within the PDF Clown architecture (as suggested by the PDF specification).</para>
+<para>As stated at the beginning of this section, when you manipulate a high-level (i.e. document-level) object (inheriting from PdfObjectWrapper), you have to address two reference levels: a deep, file-level reference that represents the existence of the object inside the PDF instance through an indirect object, and one or more shallow, document-level references that represent the application of the object inside the PDF instance. See <xref linkend="figure_detailedObjectReferences"/></para>
+
+<figure id="figure_detailedObjectReferences">
+  <title>Deep and shallow references (detailed view)</title>
+  <mediaobject id="detailedObjectReferences">
+    <imageobject>
+      <imagedata format="png" fileref="../../common/res/objectReferences2.png" align="center" width="400"/>
+    </imageobject>
+  </mediaobject>
+</figure>
+
+<para>For example, if you want to remove a page from a document, it suffices to invoke the <code>remove</code> method of the <code>Pages</code> collection: this is a shallow, document-level reference, so the page has gone, but... its phantom keeps lurking behind at file level, as you haven't removed the indirect object backing your page! So we also need to perform a file-level removal of its indirect object, to eliminate its deep reference.</para>
+<para>You may say: why damn is there such a "duplication"?! Well, flexibility implies more degrees of expression: if you wanted not to remove your page from the document, but just to move it in another position within the same document, you would only perform a shallow removal followed by an insertion of the same page at the target position.</para>
+
+<para>So, accordingly to the layered structure modelled by PDF Clown, inserting external objects into a document is just a matter of accomplishing two operations:</para>
+<orderedlist>
+<listitem>to insert a clone of the external object into the intended <emphasis role="italic">file-level context (deep reference)</emphasis>, causing it to become an imported internal <emphasis role="italic">inactive</emphasis> object;</listitem>
+<listitem>to insert the imported internal inactive object into the intended <emphasis role="italic">document-level context (shallow reference)</emphasis>, causing it to become <emphasis role="italic">active</emphasis>.</listitem>
+</orderedlist>
+
+<para>As document-level objects work assuming that all encountered entities belong to the same underlying (file) context, <emphasis role="italic">it's client responsability to ensure that objects such as a page are properly contextualized within the same file before being used</emphasis>. To say: you must always ensure that the document-level object (in our example: a Page) you're working with belongs to the file you're working inside. There are simply three ways to do this: if your document-level object has already been part of the document you're working inside, you're OK; if your document-level object has just been created, you have had to pass a reference of your document to its constructor (contextual creation); if your document-level object has just been imported from another document, you have had to pass a reference of your document to its cloning method (contextual cloning). That's why you aren't allowed to just append an alien page to your document: you must first contextually clone it to force its existence inside your file, then you are allowed to use this clone to append to your document.</para>
+</section>
+</section>
+</section>
+
+<section>
+<title>File layer: syntactic structure</title>
+
+<para><code>org.pdfclown.files</code> namespace represents the actual structure of a PDF instance, made up of a collection of indirect objects (<code>IndirectObjects</code>) accessible through the <code>indirectObjects</code> property of the <code>File</code> class. The latter is the pivotal object of the syntactic model, used to manipulate any PDF instance at low level.</para>
+</section>
+
+<section>
+<title>Document layer: semantic structure</title>
+
+<para><code>org.pdfclown.documents</code> namespace wraps the syntactic structure into high-level objects revolving around a collection of pages (<code>Pages</code>) accessible through the <code>pages</code> property of the <code>Document</code> class. The latter is the pivotal object of the semantic model, used to manipulate any PDF instance at high level.</para>
+</section>
+
+<section>
+<title>Content sublayer: the content stream model</title>
+
+<para>Since version 0.0.4, PDF Clown supports a <emphasis role="italic">fully object-oriented content stream model within the content sublayer</emphasis> (see <code>documents.contents.objects</code> subnamespace). This practically implies that you can access each content object (operations and composite objects like Text, InlineImage and so on) that constitutes a page, and modify/add/remove it. A typical scenario of use may be text replacement (discovering text occurrences and modifying them with new text).</para>
+<para>Moreover, <emphasis role="italic">content scanning</emphasis> (see <code>documents.contents.ContentScanner</code> class) of the content object sequence within a content stream (see <code>documents.contents.Contents</code> class) provides the access to the graphics state transitions, delivering useful information such as current text parameter values (eg: character and word spacing, horizontal scaling, text rise, etc.) and graphics parameter values (eg: line width, line cap style, line join style, current transformation matrix, etc.). This functionality is the powerful base for lots of possible applications, such as text extraction (see 0.0.8 version) and content visual rendering.</para>
+
+<section>
+<title>Core types</title>
+
+<para>Contents are described as sequences of content objects within content streams; each content stream is marshalled/unmarshalled through the <code>documents.contents.Contents</code> class.</para>
+
+<para>Contents may be included within a content stream either <emphasis role="italic">by value</emphasis> (so-called <emphasis role="bold">inline</emphasis> contents) or <emphasis role="italic">by reference</emphasis> (so-called <emphasis role="bold">external</emphasis> contents).</para>
+
+<para>Every content stream is associated to a context (see <code>documents.contents.IContentContext</code> interface) which provides additional information such as resources (fonts, colors, images and so on) and canvas surface bounds. <code>IContentContext</code> inherits from <code>documents.contents.IContentEntity</code> interface, a powerful abstration that applies even to objects outside the PDF model (such as those within the <code>documents.contents.entities</code> subnamespace); it allows to transparently obtain inline (<code>toInlineObject()</code> method) and external (<code>toXObject()</code> method) content representations equivalent to the source entity. This functionality has a twofold applicability: existing content stream transformation (such as in case of a <code>Page</code> to be rendered as an external form through its <code>toXObject()</code> method implementation) and abstract entities rendering (such as in case of a <code>documents.contents.entities.Image</code> or a <code>documents.contents.entities.Barcode</code> to be inserted into a PDF instance either inside an existing content stream (<code>toInlineObject()</code> method) or creating an external stream (<code>toXObject()</code> method)).</para>
+</section>
+
+<section>
+<title>Typesetting</title>
+
+<para>PDF Clown features a stacked architecture for page composition gathered inside the <code>documents.contents.composition</code> subnamespace, sitting upon the content stream model. Its layers (see <xref linkend="figure_typesettingStack"/>) are represented by:</para>
+<orderedlist>
+<listitem><emphasis role="bold">primitive typesetting</emphasis>: the <code>PrimitiveFilter</code> class provides the graphics primitives defined by the PDF 1.6 specification (e.g. coordinate space transformations, text, path, external object insertion etc.). This is the base for the following composition layers;</listitem>
+<listitem><emphasis role="bold">positional typesetting</emphasis>: the <code>BlockFilter</code> class forces contents to fit within page areas (i.e. horizontal and vertical alignment for low-level typographic entities insertion such as text and images);</listitem>
+<listitem><emphasis role="bold">flow typesetting</emphasis>: the <code>FlowFilter</code> class (currently to do yet) allows contents to spread across multiple pages (i.e.  high-level typographic entities insertion such as paragraphs and tables).</listitem>
+</orderedlist>
+
+<figure id="figure_typesettingStack">
+  <title>Typesetting stack</title>
+  <mediaobject id="typesettingStack">
+    <imageobject>
+      <imagedata format="SVG" fileref="../../common/res/typesetting.svg" align="center" contentwidth="100%" width="50%"/>
+    </imageobject>
+  </mediaobject>
+</figure>
+</section>
+</section>
+
+</chapter>

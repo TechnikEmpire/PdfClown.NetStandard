@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+  version="0.1.2" 
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <meta>
+    <date>2013-02-04</date>
+    <!--
+      'revision' is the current revision of this metadocumentation.
+      Its value should be an incremental counter anchored to the project version,
+      i.e. it should be reset to zero everytime a new project version is created.
+    -->
+    <revision>0</revision>
+    <author>
+      <name>
+        <first>Stefano</first>
+        <last>Chizzolini</last>
+      </name>
+      <contact type="url">http://www.stefanochizzolini.it</contact>
+    </author>
+  </meta>
+  <title>PDF Clown Project</title>
+  <description>
+    <db:para>This is the source code distribution of <db:link xl:href="http://www.pdfclown.org/"><db:emphasis role="strong">PDF Clown</db:emphasis></db:link>, <db:emphasis>a general-purpose library for the manipulation of PDF files</db:emphasis> implemented in multiple platforms (<db:link xl:href="../java/README.html">Java</db:link>, <db:link xl:href="../dotNET/README.html">.NET</db:link>).</db:para>
+  </description>
+  <comment>
+    <db:section xml:id="community">
+      <db:title>Community</db:title>
+      <db:para>The <db:link xl:href="http://www.pdfclown.org/community.html">Community page</db:link> guides you through the resources that you can use to ask questions, request new features, report bugs, discuss and submit code contributions and keep yourself up-to-date about the project's development.</db:para>
+    </db:section>
+    <db:section xml:id="updates">
+      <db:title>Updates</db:title>
+      <db:para>The <db:link xl:href="http://sourceforge.net/projects/clown/"><db:emphasis role="strong">official distribution repository</db:emphasis></db:link> is hosted by SourceForge.net and referenced by <db:link xl:href="http://www.pdfclown.org/">PDF Clown's official website</db:link>: please AVOID downloading from any other repository if you want to be sure its updates can be trusted.</db:para>
+      <db:para>This distribution represents the result of a release cycle which tipically spans over several months: instead of waiting for the final release, you can keep your copy of the PDF Clown's code base up-to-date synchronizing it with the <db:link xl:href="http://sourceforge.net/scm/?type=svn&amp;group_id=176158"><db:emphasis role="strong">official SVN repository</db:emphasis></db:link>. You have just to choose the branch more appropriate for your needs:</db:para>
+      <db:itemizedlist>
+        <db:listitem><db:emphasis role="strong">Fix branch</db:emphasis> &lt;<db:link xl:href="https://clown.svn.sourceforge.net/svnroot/clown/branches/0.1.1-Fix">https://clown.svn.sourceforge.net/svnroot/clown/branches/0.1.2-Fix</db:link>&gt;: corrective branch (bug fixes for existing functionalities);</db:listitem>
+        <db:listitem><db:emphasis role="strong">Trunk</db:emphasis> &lt;<db:link xl:href="https://clown.svn.sourceforge.net/svnroot/clown/trunk">https://clown.svn.sourceforge.net/svnroot/clown/trunk</db:link>&gt;: evolutionary branch (all the latest &amp; greatest along with the same bug fixes of the above-mentioned Fix branch).</db:listitem>
+      </db:itemizedlist>
+    </db:section>
+    <db:section xml:id="supportIt">
+      <db:title>Support it!</db:title>
+      <db:para>Are you successfully using this software? <db:emphasis>Remember that behind it there are human beings who enjoyed donating some effort to craft a nice piece of code</db:emphasis> -- you can demonstrate your appreciation in several ways:</db:para>
+        <db:itemizedlist>
+          <db:listitem><db:emphasis role="strong">donate</db:emphasis>: even a little <db:link xl:href="http://www.stefanochizzolini.it/en/projects/clown/#Donations">PayPal transfer</db:link> is welcome, just to cheer your success;</db:listitem>
+          <db:listitem><db:emphasis role="strong">contribute</db:emphasis>: have you extended the library to cover new functionalities? have you written useful sample code or documentation you'd like to share? let us know!;</db:listitem>
+          <db:listitem><db:emphasis role="strong">communicate</db:emphasis>: inform your colleagues and Web community about this project and promote the broader adoption of <db:link xl:href="http://en.wikipedia.org/wiki/Free_software">free software</db:link>.</db:listitem>
+        </db:itemizedlist>
+    </db:section>
+  </comment>
+  <copyright>
+    <year>2006-2013</year>
+    <holder>
+      <name>
+        <first>Stefano</first>
+        <last>Chizzolini</last>
+      </name>
+      <contact type="url">http://www.stefanochizzolini.it</contact>
+    </holder>
+  </copyright>
+  <license>
+    <inherits>
+      <base name="LGPL" version="3">
+        <title>GNU Lesser General Public License</title>
+        <src type="url">licenses/gnu.org/lgpl.html</src>
+        <src type="url">http://www.gnu.org/licenses/lgpl.html</src>
+        <src type="mail">
+          <name>Free Software Foundation, Inc.</name>
+          <place>51 Franklin St - Fifth Floor</place>
+          <city>Boston</city>
+          <subCountry>MA</subCountry>
+          <country>USA</country>
+          <postalCode>02110-1301</postalCode>
+        </src>
+      </base>
+      <extensions/>
+      <restrictions/>
+    </inherits>
+    <description>
+      <db:para>This program is <db:link xl:href="http://en.wikipedia.org/wiki/Free_software">free software</db:link>; you can redistribute it and/or modify it under the terms of version 3 of the GNU Lesser General Public License as published by the Free Software Foundation.</db:para>
+    </description>
+    <disclaimer><db:para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.</db:para>
+    <db:para>IN NO EVENT SHALL THE COPYRIGHT HOLDER AND CONTRIBUTORS BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, ARISING OUT OF THE USE OF THIS SOFTWARE, EVEN IF THE COPYRIGHT HOLDER AND CONTRIBUTORS HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</db:para>
+    <db:para>THE SOFTWARE PROVIDED HEREIN IS ON AN "AS IS" BASIS, AND THE COPYRIGHT HOLDER AND CONTRIBUTORS HAVE NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS. THE COPYRIGHT HOLDER AND CONTRIBUTORS MAKE NO REPRESENTATIONS AND EXTEND NO WARRANTIES OF ANY KIND, EITHER IMPLIED OR EXPRESS, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, OR THAT THE USE OF THE SOFTWARE WILL NOT INFRINGE ANY PATENT, TRADEMARK OR OTHER RIGHTS.</db:para></disclaimer>
+  </license>
+</project>

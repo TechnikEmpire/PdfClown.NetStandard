@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<issues
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <description>
+    <db:para>This is a list of known issues affecting PDF Clown's current release.</db:para>
+  </description>
+  <tip>Known issues</tip>
+  <entries>
+    <limitation>Content rendering and printing: currently at pre-alpha stage (no assumption to work at production level -- implementation is still incomplete).</limitation>
+    <limitation>Text extraction: column layouts and table layouts haven't been supported yet (text is always grouped by row).</limitation>
+    <limitation>Text composition: only left-to-right writing systems are currently supported.</limitation>
+    <limitation>Font subsetting: currently not supported (font descriptions are fully embedded).</limitation>
+  </entries>
+</issues>

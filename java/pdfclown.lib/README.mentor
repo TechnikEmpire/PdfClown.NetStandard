@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  >
+  <title>Library</title>
+  <tip>PDF Clown source code</tip>
+  <description>
+    <db:para>This section hosts the source code of the Java implementation of PDF Clown.</db:para>
+  </description>
+  <comment/>
+</resource>

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E302C4A2-7CD7-45CA-832A-3A6371F77F22}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CliSamples</RootNamespace>
+    <AssemblyName>CliSamples</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="org\pdfclown\samples\cli\AcroFormCreationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AcroFormFillingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AcroFormFlatteningSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AcroFormParsingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\ActionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AdvancedTextExtractionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AnnotationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AppDataCreationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\AttachmentExtractionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\BarcodeSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\BasicTextExtractionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\BookmarksParsingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\ComplexTypesettingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\ContentScanningSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\GraphicsSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\HelloWorldSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\ImageExtractionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\ImageSubstitutionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\InlineObjectSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\LayerCreationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\LayerEditingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\LinkCreationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\LinkParsingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\NamedDestinationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\namespace.cs" />
+    <Compile Include="org\pdfclown\samples\cli\NamesParsingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageCombinationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageCoordinatesSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageFormatSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageLabelSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageManagementSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageNumberingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageToFormSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PageTransitionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\ParsingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\PrintingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\RenderingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\Sample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\SampleLoader.cs" />
+    <Compile Include="org\pdfclown\samples\cli\StandardFontSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\StreamExternalizationSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\TextFrameSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\TextHighlightSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\TextInfoExtractionSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\TypesettingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\UnicodeSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\Utils.cs" />
+    <Compile Include="org\pdfclown\samples\cli\VideoEmbeddingSample.cs" />
+    <Compile Include="org\pdfclown\samples\cli\WatermarkSample.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PdfClown\PdfClown.csproj">
+      <Project>{806b5954-3404-4ae5-a041-b61b6ad5130d}</Project>
+      <Name>PdfClown</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common">
+      <Version>4.5.0-rc1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Drawing.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<credits
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <description>
+    <db:para>These are the people who contributed to PDF Clown Project.</db:para>
+    <db:para>Along with herein-mentioned people, I'd like also to thank all the other guys who have sent their comments to my email box, to the <db:link xl:href="http://sourceforge.net/projects/clown/forums">public forums</db:link> and to the <db:link xl:href="http://pdfclown.wordpress.com">blog</db:link>: I really appreciate your interest in the project! Please apply your requests to the public forums and blog whenever possible, so that others may benefit from knowing about them.</db:para>
+  </description>
+  <comment>
+    <db:para>NOTE: bracketed tags (e.g. "[DEV:HAa]") may be used within the source code to reference people herein mentioned.</db:para>
+  </comment>
+  <tip>Who's behind PDF Clown development</tip>
+  <agents>
+    <agent role="team">
+      <name>
+        <first>Stefano</first>
+        <last>Chizzolini</last>
+        <title>M.Econ.</title>
+        <affiliation>Independent Software Consultant</affiliation>
+      </name>
+      <tag>SC</tag>
+      <activity version="0.0.0+">Project management</activity>
+      <activity version="0.0.0+">Analysis</activity>
+      <activity version="0.0.0+">Design</activity>
+      <activity version="0.0.0+">Development</activity>
+      <contact type="url">http://www.stefanochizzolini.it</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Manuel</first>
+        <last>Guilbault</last>
+      </name>
+      <tag>MG</tag>
+      <activity version="0.1.2">Code development</activity>
+      <contact type="email">manuel{dot}guilbault{at}gmail{dot}com</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Andreas</first>
+        <last>Pinter</last>
+      </name>
+      <tag>AP</tag>
+      <activity version="0.1.2">Bug fixing</activity>
+      <contact type="url">http://sourceforge.net/users/drunal/</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Dirk</first>
+        <last>Lellinger</last>
+      </name>
+      <tag>DL</tag>
+      <activity version="0.1.1">Bug fixing</activity>
+      <contact type="email">dlellinger{at}users{dot}sourceforge{dot}net</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Joshua</first>
+        <last>Tauberer</last>
+        <title>Ph.D.</title>
+        <affiliation>Founder of Civic Impulse LLC</affiliation>
+      </name>
+      <tag>JT</tag>
+      <activity version="0.1.0">Code development</activity>
+      <contact type="url">http://razor.occams.info</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>J.James</first>
+        <last>Jack</last>
+        <title>Ph.D.</title>
+        <affiliation>Senior Consultant at Symyx Technologies UK Ltd.</affiliation>
+      </name>
+      <tag>3J</tag>
+      <activity version="0.0.8">Code development</activity>
+      <contact type="email">james{dot}jack{at}symyx{dot}com</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Jean-Claude</first>
+        <last>Truy</last>
+      </name>
+      <tag>JCT</tag>
+      <activity version="0.0.8">Bug fixing</activity>
+      <contact type="email">jctruy{at}gmail{dot}com</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Andreas</first>
+        <last>Hansson</last>
+      </name>
+      <tag>AH</tag>
+      <activity version="0.0.6,0.0.7">Bug fixing</activity>
+      <contact type="email">adron{at}users{dot}sourceforge{dot}net</contact>
+    </agent>
+    <agent role="contributor">
+      <name>
+        <first>Haakan</first>
+        <last>Aakerberg</last>
+      </name>
+      <tag>HAa</tag>
+      <activity version="0.0.4,0.0.5">Bug fixing, suggestions</activity>
+      <contact type="url">http://www.ongoing.se/</contact>
+    </agent>
+  </agents>
+</credits>

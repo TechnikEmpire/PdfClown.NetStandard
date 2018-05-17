@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  >
+  <title>Web Samples</title>
+  <tip>Functionality demonstrations based on servlets</tip>
+  <description>
+    <db:para>This section hosts some web samples for PDF Clown.</db:para>
+  </description>
+  <comment>
+  </comment>
+</resource>

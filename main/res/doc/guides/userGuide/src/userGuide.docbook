@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+  <!ENTITY info SYSTEM "info.docbook">
+  <!ENTITY preface SYSTEM "preface.docbook">
+  <!ENTITY chapter1 SYSTEM "chapter1.docbook">
+  <!ENTITY chapter2 SYSTEM "chapter2.docbook">
+  <!ENTITY chapter3 SYSTEM "chapter3.docbook">
+  <!ENTITY appendixA SYSTEM "../../common/src/GFDL.appendix.docbook">
+  <!ENTITY appendixB SYSTEM "samples.appendix.docbook">
+
+  <!ENTITY mdash "&#8212;"><!-- em dash, U+2014 ISOpub -->
+]>
+<!--
+NOTE:
+FOP 0.20.5 is unable to properly render the keep-together attribute (default value: 'always') at fo/param.xsl/xsl:attribute-set[@name='formal.object.properties']/xsl:attribute[@name='keep-together.within-column'].
+This implies that graphic elements like figures may be split on contiguous pages into their constituent entities (title and image, in this case).
+
+See http://mail-archives.apache.org/mod_mbox/xmlgraphics-fop-dev/200512.mbox/%3C4394600E.7000504@java.pl%3E
+-->
+<book xmlns:db="http://docbook.org/ns/docbook" version="5.0" xml:lang="en">
+  &info;
+  &chapter1;
+  &chapter2;
+  &chapter3;
+  &appendixB;
+<!--   &appendixA; -->
+</book>

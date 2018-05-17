@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<todos
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <description>
+    <db:para>Here are pending activities that need to be accomplished.</db:para>
+  </description>
+  <tip>TODO list of the PDF Clown Project</tip>
+  <entries>
+    <todo>Documentation: improve and extend <db:link xl:href="doc/userGuide.pdf">PDF Clown Project User Guide</db:link> contents. Rationale: current documentation is barely uncomplete.</todo>
+    <todo>Hyphenation (see documents.contents.composition.TextFitter): implement a decent algorithm. Rationale: current implementation is purely a stub.</todo>
+    <todo>Content rendering</todo>
+    <todo>Exceptions (see tokens.FileFormatException, documents.contents.fonts.FontFileFormatException ...): refactor? Rationale: exceptions may need harmonization.</todo>
+    <todo>Font subsetting</todo>
+  </entries>
+</todos>

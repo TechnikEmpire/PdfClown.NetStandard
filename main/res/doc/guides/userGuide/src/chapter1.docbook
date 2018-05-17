@@ -1,0 +1,95 @@
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>PDF Clown is an abstract library for creating and modifying PDF documents based upon the Adobe PDF specification 1.6. Its emphasis upon abstractness derives from the willingness to offer a clean design above all the other concerns, instead of serving rough functionality hackings that tipically lead to bloated code without a necessary holistic view.</para>
+<para>This book provides an agile overview of the main concepts you may need to understand the way PDF Clown works. Further practical information can be retrieved in the documentation of distribution sections pertaining to PDF Clown's implementations (currently: Java and .NET/C#).</para>
+
+<note>
+  <title>Release note</title>
+  <para>The current release of this document has been revised and somewhat extended; nonetheless, its contents are still uncomplete and sparse.</para>
+</note>
+
+<section>
+<title>Audience</title>
+
+<para>This book is written for software developers who want to use PDF Clown to work with PDF documents; it's also useful for those willing to contribute their own code to improve the existing code base.</para>
+<para>Topics are presented with a top-down style, providing an overview of the library architecture, followed by details on its actual use.</para>
+</section>
+
+<section>
+<title>Objectives</title>
+
+<para>PDF Clown's design and implementation are inspired by some assumptions and requirements:</para>
+<itemizedlist>
+<listitem>clean and simple design: quick adoption, easy maintenance;</listitem>
+<listitem>openness: any user can directly evaluate the quality of the functional implementation investigating the code base. Extensive documentation is our commitment;</listitem>
+<listitem>intelligibility: code MUST be widely commented to support its readability, stressing the ties it keeps with the official PDF specification, as an implementation of its;</listitem>
+<listitem>conformance: adoption of established conventions, and comprehensive documentation of possible custom conventions;</listitem>
+<listitem>consistency: every operation or state MUST be rendered in the same way when the same conditions occur, principally through inheritance and interface realization (for example, any collective entity is rendered consistently realizing standard collection interfaces throughout the library -- it may seem banal, but you can see horribly naive iterative solutions in lots of libraries out there ;-));</listitem>
+<listitem>loose coupling, strong cohesion, no redundancy: classes MUST expose a minimal interface along with an exhaustive contract that provides an igienic enforcement to their encapsulation, avoiding overlapping roles and states, and promoting well-defined cooperative responsabilities;</listitem>
+<listitem>evolution: ongoing improvements MUST be accomplished through iterative revisions, without excessive specification details or anticipatory efforts.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Installation</title>
+
+<section>
+<title>PDF Clown for Java</title>
+<para>PDF Clown for Java is packed inside <code>pdfclown.jar</code>. It's designed to work with Java VM 6 or later.</para>
+<para>To reference it from within your applications is just a matter of adding its path to your <code>CLASSPATH</code> or to place it into the <code>WEB-INF/lib</code> folder.</para>
+</section>
+
+<section>
+<title>PDF Clown for .NET</title>
+<para>PDF Clown for .NET is packed inside <code>PDFClown.dll</code>. In order to work, it must be accompanied by its dependencies (ICSharpCode.SharpZipLib.dll), along with .NET Framework 3.5 or later.</para>
+<para>To reference it from within your applications is just a matter of adding it to your project references as usual.</para>
+</section>
+</section>
+
+<section>
+<title>PDF expert in 5 minutes</title>
+
+<para>OK, I'm joking! After skimming through these notes you surely won't become a PDF guru, but you'll be sufficiently knowledgeable about some basic notions of PDF necessary to grasp the overall logic that backs PDF Clown's library workings.</para>
+
+<para>As you may know, PDF is a mature, versatile, standard format (see ISO 32000-1:2008) for typographic renditions. From a user perspective, a <emphasis role="bold">PDF instance</emphasis> (informally named 'file') is a <emphasis>collection of objects deriving from a limited, well-defined bunch of types (primitive objects)</emphasis>.</para>
+
+<para>The PDF specification makes a good work outlining the structure of an instance: in this phase we can approximately term <emphasis role="bold">file level</emphasis> the domain of <emphasis>primitive types</emphasis>, whilst <emphasis role="bold">document level</emphasis> the domain of the <emphasis>objects derived from them</emphasis>. At file level, the primitive types impose <emphasis>syntactic constraints</emphasis> upon the derived objects (i.e. rules about the ways they can be defined and combined); on the other hand, at document level the derived objects impose <emphasis>semantic constraints</emphasis> upon your objectives (i.e. rules about the ways they are able to express meaningful information).</para>
+
+<section>
+<title>File-level (syntactic) view</title>
+
+<para>File level represents the syntactic aspect of a PDF instance, constituted by primitive objects. Primitive objects can be classified as follows (note: this distinction doesn't appear in the official specification, but it's appropriate for our purposes):</para>
+
+<itemizedlist>
+<listitem>atomic objects:
+<itemizedlist>
+<listitem>booleans (logical symbols);</listitem>
+<listitem>numbers (numeric symbols);</listitem>
+<listitem>strings (arbitrary sequences of characters);</listitem>
+<listitem>names (symbols uniquely defined by a sequence of characters);</listitem>
+</itemizedlist>
+</listitem>
+<listitem>composite objects:
+<itemizedlist>
+<listitem>arrays (one-dimensional collections of possibly-heterogeneous objects arranged sequentially);</listitem>
+<listitem>dictionaries (associative tables containing pairs of objects (key/value), known as the dictionary's entries);</listitem>
+<listitem>streams (multipurpose, incrementally-readable sequences of bytes, used to host potentially large amounts of data such as images, embedded fonts, and so on).</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+
+<para>Atomic objects represent simple types.</para>
+<para>Composite objects host other objects, either by value or by reference. <emphasis>By-value objects</emphasis> are dubbed <emphasis role="bold">direct objects</emphasis>, while <emphasis>by-reference objects</emphasis> are dubbed <emphasis role="bold">indirect objects</emphasis>. In the latter case, the pointer to the actual object is named <emphasis role="bold">reference</emphasis>: it's of paramount importance to immediately understand that <emphasis>indirect objects may be referenced from within other (composite) objects only through their respective references</emphasis>. Streams are inherently indirect objects, whilst all the other primitive types instances may be alternatively direct or indirect.</para>
+
+<para>A <emphasis role="bold">PDF file</emphasis> is, in essence, <emphasis>a collection of indirect objects linked together through multiple references</emphasis>.</para>
+</section>
+
+<section>
+<title>Document-level (semantic) view</title>
+
+<para>A <emphasis role="bold">PDF document</emphasis> (semantic view of a PDF instance) consists of <emphasis>a collection of objects that together describe the appearance of one or more pages</emphasis>, possibly accompanied by additional interactive elements (bookmarks, viewer preferences, annotations, acroforms, and so on) and higher-level application data (such as document-interchange features (metadata, tags, and so on)).</para>
+<para>A document's pages (and other visual elements) can contain any combination of text, graphics, and images. A page's appearance is described by a content stream, which contains a sequence of graphics objects to be painted on the page.</para>
+</section>
+</section>
+</chapter>

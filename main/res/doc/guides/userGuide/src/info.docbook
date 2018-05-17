@@ -1,0 +1,35 @@
+<bookinfo>
+<title>PDF Clown Project 0.1</title>
+<subtitle>User Guide</subtitle>
+
+<authorgroup>
+<author>
+<firstname>Stefano</firstname>
+<surname>Chizzolini</surname>
+</author>
+</authorgroup>
+
+<pubdate>February 24, 2011</pubdate>
+<releaseinfo>Revision 0.1.0.0</releaseinfo>
+
+<abstract>
+<para>This document is an overview of the PDF Clown library, version 0.1.0.</para>
+</abstract>
+
+<copyright>
+<year>2006-2011</year>
+<holder>Stefano Chizzolini</holder>
+</copyright>
+
+<legalnotice>
+<para>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation (http://www.gnu.org/copyleft/fdl.html), provided that you keep this notice unmodified along with the author attribution.</para>
+<para>The PDF specification is the property of Adobe Systems Incorporated. Adobe and PostScript are trademarks of Adobe Systems Incorporated. TrueType is a trademark of Apple Computer Incorporated. Unicode is a trademark of Unicode Incorporated. All other trademarks are the property of their respective owners.</para>
+</legalnotice>
+
+<keywordset>
+<keyword>documentation</keyword>
+<keyword>PDF Clown</keyword>
+<keyword>user</keyword>
+<keyword>guide</keyword>
+</keywordset>
+</bookinfo>

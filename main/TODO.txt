@@ -1,0 +1,30 @@
+TODO
+PDF Clown Project [README.html] > 
+
+
+Project version: 0.1.2 - TODO revision: 0 (2013-02-04)
+
+---------------
+Introduction
+---------------
+Here are pending activities that need to be accomplished.
+
+
+---------------
+TODO list
+---------------
+ * [todo] Documentation: improve and extend PDF Clown Project User Guide [doc/userGuide.pdf] contents. Rationale: current documentation is barely uncomplete.
+ * [todo] Hyphenation (see documents.contents.composition.TextFitter): implement a decent algorithm. Rationale: current implementation is purely a stub.
+ * [todo] Content rendering
+ * [todo] Exceptions (see tokens.FileFormatException, documents.contents.fonts.FontFileFormatException ...): refactor? Rationale: exceptions may need harmonization.
+ * [todo] Font subsetting
+
+---------------
+Resources
+---------------
+ * Navigation:
+  * Current directory [.]: browse current section contents
+  * Parent section [README.html]: move to parent section
+  * Previous section [ISSUES.html]: move to previous section
+  * Next section [INDEX.html]: move to next section
+  * INDEX [INDEX.html]: move to the distribution map

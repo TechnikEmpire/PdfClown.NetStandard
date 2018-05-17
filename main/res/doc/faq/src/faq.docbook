@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>FAQ</title>
+<subtitle>PDF Clown</subtitle>
+<releaseinfo>Project version: 0.0.8 -- FAQ revision: 0 (2010-08-21)</releaseinfo>
+</info>
+
+<section>
+<title>Introduction</title>
+<qandaset defaultlabel='qanda'>
+
+<qandaentry>
+<question>
+<para>What is PDF Clown?</para>
+</question>
+<answer>
+<para>PDF Clown is an abstract library devoted to the manipulation of <link xl:href="http://en.wikipedia.org/wiki/Pdf">PDF</link> files, implemented on multiple platforms (Java, .NET).</para>
+<para>ehmm... another PDF cruncher?! Not exactly: I strived to get rid of a number of cumbersome libraries, bulky and graceless, in favor of a simple, consistent, elegant (such an abused word!) piece of code that could do plainly what I needed (and what could be useful for you too, I hope).</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>Where does the name 'PDF Clown' come from?</para>
+</question>
+<answer>
+<para>That's a joking combination of two circumstances: I love clowns (so smiling!) and, in the fanciful world of circus, clowns are companions of acrobats (any reference to existing products is purely accidental *;o)).</para>
+<para>Smiling might be a major therapy for the world: could people just respect one another, we'd have solved a large portion of current troubles. There's a nice piece of poetry on the web describing smiles:
+<blockquote>
+<attribution>Anonymous</attribution>
+<literallayout>A smile costs nothing,
+but gives much.
+
+It enriches those who receive it,
+without impoverishing those who give it.
+
+It takes nothing but a moment,
+but the memory of it sometimes lasts forever.
+
+None is so rich or mighty that he can get along without it,
+and none is so poor but that he can be made rich by it.
+
+A smile creates happiness in the home,
+fosters good will in business,
+and is the countersign of friendship.
+
+It brings rest to the weary,
+cheer to the discouraged,
+sunshine to the sad,
+and is nature's best antidote for trouble.
+
+Yet it cannot be bought, begged, borrowed, or stolen,
+for it is something that is of no value to anyone until it is given away.
+
+And, if you meet someone who is too weary to give you a smile, leave one of yours.
+For no one needs a smile quite so much as he who has none left to give.
+</literallayout>
+</blockquote>
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>What can I do with PDF Clown?</para>
+</question>
+<answer>
+<para>PDF Clown provides a core library that exposes the PDF structure in a simple yet powerful object-oriented hierarchy. It will be eventually released a set of command-line tools built upon the library in order to allow direct access to common functionalities as file merging, file splitting, watermarking and so on.</para>
+<para>The library can be used in applications running on any supported platform (Java, .NET) to manipulate PDF files.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</section>
+
+<section>
+<title>Getting started</title>
+<qandaset defaultlabel='qanda'>
+
+<qandaentry>
+<question>
+<para>How do I install PDF Clown?</para>
+</question>
+<answer>
+<para>First of all, you need to download its source code distribution (see <link xl:href="http://www.pdfclown.org/downloads.html">Download section</link> on PDF Clown home page), then uncompress it. This distribution ships with precompiled bytecode along with its source, so that all you have to do to consume it is just to reference its library in your classpath. See README files included in the distribution for more info.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>Is there a manual?</para>
+</question>
+<answer>
+<para>Currently, PDF Clown's documentation is fairly uncomplete (sorry!), as it's been only partially written during the past few months. It will be progressively expanded accordingly to your feedback (let me know!). Anyway, available resources to skim through are all attached to the source code distribution: samples (and their documentation), user guide, API Reference, developer guide and metadocumentation (README files, CHANGELOGs, and so on).</para>
+</answer>
+</qandaentry>
+</qandaset>
+</section>
+</article>

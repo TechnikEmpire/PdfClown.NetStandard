@@ -1,0 +1,189 @@
+<appendix id="samples">
+<title>Samples</title>
+
+<para>This is an index to the code samples within this distribution, whose purpose is to demonstrate some of the possible applications of the PDF Clown library. You can find within each implementation subtree ("java" and "dotNET"); they are marked according to their project type:</para>
+<itemizedlist>
+<listitem>[CLI]: command line sample (see "pdfclown.samples.cli" project)</listitem>
+<listitem>[GUI]: graphical user interface sample (see "pdfclown.samples.gui" project)</listitem>
+<listitem>[WEB]: web sample (see "pdfclown.samples.web" project)</listitem>
+</itemizedlist>
+
+<section>
+<title>Acroform</title>
+
+<itemizedlist>
+<listitem>AcroFormCreationSample [CLI]: CheckBox, ComboBox, ListBox, PushButton, RadioButton, TextField.</listitem>
+<listitem>AcroFormParsingSample [CLI]: Field.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Actions</title>
+
+<itemizedlist>
+<listitem>AcroFormCreationSample [CLI]: JavaScript, WidgetActions.</listitem>
+<listitem>ActionSample [CLI]: DocumentActions, GoToLocal, GoToURI, PageActions.</listitem>
+<listitem>BookmarksParsingSample [CLI]: Action.</listitem>
+<listitem>ComplexTypesettingSample [CLI]: GoToURI.</listitem>
+<listitem>LinkCreationSample [CLI]: GoToEmbedded, GoToURI.</listitem>
+<listitem>LinkParsingSample [CLI]: Action, Destination, GoToDestination, GoToEmbedded, GotoNonLocal, GoToURI.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Annotations</title>
+
+<itemizedlist>
+<listitem>AnnotationSample [CLI]: CalloutNote, Caret, Ellipse, FileAttachment, Line, Note, Rectangle, RubberStamp, Scribble.</listitem>
+<listitem>LinkCreationSample [CLI]: FileAttachment, Link.</listitem>
+<listitem>LinkParsingSample [CLI]: Annotation, Destination, Link.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Barcodes</title>
+
+<itemizedlist>
+<listitem>BarcodeSample [CLI]: EAN13Barcode.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Bookmarks</title>
+
+<itemizedlist>
+<listitem>BookmarksParsingSample [CLI]: Bookmark, Bookmarks.</listitem>
+<listitem>ComplexTypesettingSample [CLI]: Bookmark, Bookmarks.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Content manipulation</title>
+
+<itemizedlist>
+<listitem>ContentRemovalSample [CLI]: ContainerObject, ContentObject, Contents.</listitem>
+<listitem>ContentTweakingSample [CLI]: ContainerObject, ContentObject, Contents</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Content rasterization (printing and rendering)</title>
+
+<itemizedlist>
+<listitem>PrintingSample [CLI]: Renderer.</listitem>
+<listitem>RenderingSample [CLI]: Renderer.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Content reuse</title>
+
+<itemizedlist>
+<listitem>ComplexTypesettingSample [CLI]: FormXObject, XObject.</listitem>
+<listitem>PageToFormSample [CLI]: FormXObject.</listitem>
+<listitem>WatermarkSample [CLI]: FormXObject.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Content scanning</title>
+
+<itemizedlist>
+<listitem>ContentScanningSample [CLI]: ContainerObject, ContentObject, ContentScanner, ContentScanner.GraphicsObjectWrapper.</listitem>
+<listitem>ParsingSample [CLI]: CompositeObject, ContentObject, Contents, Operation, Resources.</listitem>
+<listitem>PdfInspectorSample [GUI (Java-only)]: ContentScanner.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Destinations</title>
+
+<itemizedlist>
+<listitem>ComplexTypesettingSample [CLI]: LocalDestination.</listitem>
+<listitem>LinkParsingSample [CLI]: Destination.</listitem>
+<listitem>NamedDestinationSample [CLI]: LocalDestination, NamedDestinations.</listitem>
+<listitem>NamesParsingSample [CLI]: Destination, NamedDestinations.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Graphics composition</title>
+
+<itemizedlist>
+<listitem>BarcodeSample [CLI]: XObject.</listitem>
+<listitem>GraphicsSample [CLI]: BlockFilter, PrimitiveFilter.</listitem>
+<listitem>PageCoordinatesSample [CLI]: BlockFilter, PrimitiveFilter.</listitem>
+<listitem>PageFormatSample [CLI]: PageFormat.</listitem>
+<listitem>PageNumberingSample [CLI]: PageStamper, PrimitiveFilter.</listitem>
+<listitem>PageToFormSample [CLI]: BlockFilter, PrimitiveFilter.</listitem>
+<listitem>TextInfoExtractionSample [CLI]: PrimitiveFilter.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Images</title>
+
+<itemizedlist>
+<listitem>ComplexTypesettingSample [CLI]: Image.</listitem>
+<listitem>ImageExtractionSample [CLI]: PdfStream.</listitem>
+<listitem>ImageSubstitutionSample [CLI]: Image, ImageXObject.</listitem>
+<listitem>InlineObjectSample [CLI]: Image, PrimitiveFilter.</listitem>
+<listitem>TransformationSample [CLI]: Image.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Low-level manipulation</title>
+
+<itemizedlist>
+<listitem>ImageExtractionSample [CLI]: IBuffer, PdfDataObject, PdfDictionary, PdfIndirectObject, PdfStream.</listitem>
+<listitem>IndirectObjectEditingSample [CLI]: IBuffer, PdfDataObject, PdfDictionary, PdfIndirectObject, PdfName, PdfReference, PdfStream.</listitem>
+<listitem>ParsingSample [CLI]: PdfDataObject, PdfReference.</listitem>
+<listitem>PrimitiveObjectSample [CLI]: PdfArray, PdfDictionary, PdfInteger, PdfName.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Page management</title>
+
+<itemizedlist>
+<listitem>ImageSubstitutionSample [CLI]: Resources, XObjectResources.</listitem>
+<listitem>PageFormatSample [CLI]: Page, PageFormat</listitem>
+<listitem>PageManagementSample [CLI]: PageManager.</listitem>
+<listitem>PageTransitionSample [CLI]: Transition.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Text extraction</title>
+
+<itemizedlist>
+<listitem>AdvancedPlainTextExtractionSample [CLI]: TextExtractor.</listitem>
+<listitem>AdvancedTextExtractionSample [CLI]: ITextString, TextExtractor.</listitem>
+<listitem>BasicTextExtractionSample [CLI]: ContentScanner, Font, ShowText.</listitem>
+<listitem>LinkParsingSample [CLI]: ContentScanner, ContentScanner.TextStringWrapper, ContentScanner.TextWrapper, TextChar.</listitem>
+<listitem>TextInfoExtractionSample [CLI]: ContentScanner, ContentScanner.TextStringWrapper, ContentScanner.TextWrapper, TextChar.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Typesetting</title>
+
+<itemizedlist>
+<listitem>ComplexTypesettingSample [CLI]: BlockFilter, Font, PrimitiveFilter.</listitem>
+<listitem>HelloWorldSample [CLI]: PrimitiveFilter, StandardType1Font.</listitem>
+<listitem>StandardFontSample [CLI]: PrimitiveFilter, StandardType1Font.</listitem>
+<listitem>TextFrameSample [CLI]: BlockFilter, Font, PrimitiveFilter, StandardType1Font.</listitem>
+<listitem>TypesettingSample [CLI]: BlockFilter, Font, PrimitiveFilter.</listitem>
+<listitem>UnicodeSample [CLI]: BlockFilter, Font, PrimitiveFilter.</listitem>
+</itemizedlist>
+</section>
+
+<section>
+<title>Web</title>
+
+<itemizedlist>
+<listitem>HelloWorld [WEB (Java-only)]: how to use PDF Clown in a servlet context.</listitem>
+</itemizedlist>
+</section>
+</appendix>

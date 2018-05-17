@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <title>GUI Samples</title>
+  <tip>Functionality demonstrations based on graphical user interface</tip>
+  <description>
+    <db:para>This section hosts some GUI samples for PDF Clown.</db:para>
+  </description>
+  <comment>
+    <db:section>
+      <db:title>How to run the samples</db:title>
+      <db:para>These samples are Swing-based. You may run them in the following ways:
+        <db:itemizedlist>
+          <db:listitem><db:emphasis role="bold">Eclipse IDE</db:emphasis>: run the 'PDF Clown GUI Samples' Debug launcher (see launcher notes in '<db:link xl:href="../README.html#eclipse">Eclipse</db:link>' section).</db:listitem>
+          <db:listitem><db:emphasis role="bold">Command line</db:emphasis>: launch the 'run' <db:link xl:href="http://ant.apache.org/">Ant</db:link> task typing this:
+            <db:screen><![CDATA[ant run]]></db:screen>
+            <db:para>Alternatively, you may use a bare shell script (<db:code>run.bat</db:code> (MS Windows), <db:code>run.sh</db:code> (Unix-like)).</db:para>
+          </db:listitem>
+        </db:itemizedlist>
+      </db:para>
+    </db:section>
+  </comment>
+</resource>

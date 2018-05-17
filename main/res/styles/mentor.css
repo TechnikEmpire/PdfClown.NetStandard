@@ -1,0 +1,40 @@
+/*
+  Mentor 0.2 style sheet.
+*/
+body
+{
+  background-color: white;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+  margin: 2em;
+}
+a
+{
+  text-decoration: none;
+}
+a, a:visited
+{
+  color: blue;
+}
+h1
+{
+  font-size: 220%;
+  line-height: 105%;
+}
+h1, h2, h3, h4, h5, h6
+{
+  font-family: Courier New;
+  letter-spacing: .1em;
+}
+pre
+{
+  padding: .2em 2em;
+}
+.note
+{
+  background-color: #FFFF90;
+  border: 1px dashed black;
+  margin: 0 !important;
+  padding: .2em 1em;
+}

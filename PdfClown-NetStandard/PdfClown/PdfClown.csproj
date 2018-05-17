@@ -1,0 +1,111 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>PdfClown.NetStandard</PackageId>
+    <Version>0.2.0-beta</Version>
+    <PackageLicenseUrl>http://www.gnu.org/copyleft/lgpl.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://pdfclown.org/</PackageProjectUrl>
+    <Description>PDF Clown is a free/libre open source implementation of the Portable Document Format (PDF) specification published by Adobe® Systems Inc., written as a class library in multiple languages (Java™ 6 and C#/.NET 4.0).
+
+This is an unofficial port to .NET Standard 2.0.</Description>
+    <RepositoryUrl>https://github.com/TechnikEmpire/PdfClown.NetStandard</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>pdfclown pdf pdf-renderer pdf-rendering</PackageTags>
+    <PackageReleaseNotes>Initial port to .NET Standard 2.0.</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="4.5.0-rc1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\AGL20.scsv">
+      <Link>res\fonts\AGL20.scsv</Link>
+      <LogicalName>fonts.AGL20</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Courier.afm">
+      <Link>res\fonts\afm\Courier.afm</Link>
+      <LogicalName>fonts.afm.Courier</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Courier-Bold.afm">
+      <Link>res\fonts\afm\Courier-Bold.afm</Link>
+      <LogicalName>fonts.afm.Courier-Bold</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Courier-BoldOblique.afm">
+      <Link>res\fonts\afm\Courier-BoldOblique.afm</Link>
+      <LogicalName>fonts.afm.Courier-BoldOblique</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Courier-Oblique.afm">
+      <Link>res\fonts\afm\Courier-Oblique.afm</Link>
+      <LogicalName>fonts.afm.Courier-Oblique</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Helvetica.afm">
+      <Link>res\fonts\afm\Helvetica.afm</Link>
+      <LogicalName>fonts.afm.Helvetica</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Helvetica-Bold.afm">
+      <Link>res\fonts\afm\Helvetica-Bold.afm</Link>
+      <LogicalName>fonts.afm.Helvetica-Bold</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Helvetica-BoldOblique.afm">
+      <Link>res\fonts\afm\Helvetica-BoldOblique.afm</Link>
+      <LogicalName>fonts.afm.Helvetica-BoldOblique</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Helvetica-Oblique.afm">
+      <Link>res\fonts\afm\Helvetica-Oblique.afm</Link>
+      <LogicalName>fonts.afm.Helvetica-Oblique</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Symbol.afm">
+      <Link>res\fonts\afm\Symbol.afm</Link>
+      <LogicalName>fonts.afm.Symbol</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Times-Bold.afm">
+      <Link>res\fonts\afm\Times-Bold.afm</Link>
+      <LogicalName>fonts.afm.Times-Bold</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Times-BoldItalic.afm">
+      <Link>res\fonts\afm\Times-BoldItalic.afm</Link>
+      <LogicalName>fonts.afm.Times-BoldItalic</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Times-Italic.afm">
+      <Link>res\fonts\afm\Times-Italic.afm</Link>
+      <LogicalName>fonts.afm.Times-Italic</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\Times-Roman.afm">
+      <Link>res\fonts\afm\Times-Roman.afm</Link>
+      <LogicalName>fonts.afm.Times-Roman</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\afm\ZapfDingbats.afm">
+      <Link>res\fonts\afm\ZapfDingbats.afm</Link>
+      <LogicalName>fonts.afm.ZapfDingbats</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\cmap\Identity-H">
+      <Link>res\fonts\cmap\Identity-H</Link>
+      <LogicalName>fonts.cmap.Identity-H</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\cmap\Identity-V">
+      <Link>res\fonts\cmap\Identity-V</Link>
+      <LogicalName>fonts.cmap.Identity-V</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\cff\ExpertCharset">
+      <Link>res\fonts\cff\ExpertCharset</Link>
+      <LogicalName>fonts.cff.ExpertCharset</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\cff\ExpertSubsetCharset">
+      <Link>res\fonts\cff\ExpertSubsetCharset</Link>
+      <LogicalName>fonts.cff.ExpertSubsetCharset</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\cff\ISOAdobeCharset">
+      <Link>res\fonts\cff\ISOAdobeCharset</Link>
+      <LogicalName>fonts.cff.ISOAdobeCharset</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\main\res\pkg\fonts\cff\StandardStrings">
+      <Link>res\fonts\cff\StandardStrings</Link>
+      <LogicalName>fonts.cff.StandardStrings</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+</Project>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="4in" height="2.3in" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css"><![CDATA[
+      svg
+      {
+        stroke: #000000;
+        stroke-width: 1px;
+        font-size: 14;
+        font-family: Helvetica;
+      }
+      text.layerTitle
+      {
+        text-anchor: middle;
+      }
+      text.layerCoreClass
+      {
+        text-anchor: start;
+      }
+    ]]></style>
+  </defs>
+  <title>PDF Clown Architecture</title>
+  <desc>Layered structure of PDF Clown</desc>
+  <g transform="scale(0.5)">
+    <g>
+      <polygon points="0,0 400,0 400,160 350,160 350,50 0,50" style="fill:#FF6562;"/>
+      <text x="200" y="30" class="layerTitle">Content (sub)Layer</text>
+      <text x="420" y="30" class="layerCoreClass">documents.contents</text>
+    </g>
+    <g transform="translate(0,55)">
+      <polygon points="0,0 345,0 345,105 295,105 295,50 0,50" style="fill:#FF6562;"/>
+      <text x="200" y="30" class="layerTitle">Document Layer</text>
+      <text x="420" y="30" class="layerCoreClass">documents</text>
+    </g>
+    <g transform="translate(0,110)">
+      <rect x="0" y="0" width="290" height="50" style="fill:#FFC662;"/>
+      <text x="200" y="30" class="layerTitle">File Layer</text>
+      <text x="420" y="30" class="layerCoreClass">files</text>
+    </g>
+    <g transform="translate(0,165)">
+      <rect x="0" y="0" width="400" height="50" style="fill:#FFFF62;"/>
+      <text x="200" y="30" class="layerTitle">Object Layer</text>
+      <text x="420" y="30" class="layerCoreClass">objects</text>
+    </g>
+    <g transform="translate(0,220)">
+      <rect x="0" y="0" width="400" height="50" style="fill:#B4FF73;"/>
+      <text x="200" y="30" class="layerTitle">Token Layer</text>
+      <text x="420" y="30" class="layerCoreClass">tokens</text>
+    </g>
+    <g transform="translate(0,275)">
+      <rect x="0" y="0" width="400" height="50" style="fill:#A4D2FF;"/>
+      <text x="200" y="30" class="layerTitle">Byte Layer</text>
+      <text x="420" y="30" class="layerCoreClass">bytes</text>
+    </g>
+    <g transform="translate(300,150)">
+      <rect x="0" y="0" width="95" height="25" style="fill:#FFFF62;"/>
+      <text x="50" y="18" class="layerTitle" style="font-size:9pt;">PdfObjectWrapper</text>
+    </g>
+    <g transform="translate(5,150)">
+      <rect x="0" y="0" width="95" height="25" style="fill:#FFFF62;"/>
+      <text x="50" y="18" class="layerTitle" style="font-size:9pt;">PdfIndirectObject</text>
+    </g>
+  </g>
+</svg>

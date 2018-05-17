@@ -1,0 +1,87 @@
+<project name="util.reflex"
+  basedir="."
+  default="package"
+  >
+  <property name="src.dir"
+    location="src"
+    />
+  <property name="build.dir"
+    location="build"
+    />
+  <property name="compile.dir"
+    location="${build.dir}/classes"
+    />
+  <property name="package.dir"
+    location="${build.dir}/package"
+    />
+
+  <property name="package.name"
+    value="reflex"
+    />
+  <property name="project.version"
+    value="0.0.2"
+    />
+  <property name="project.title"
+    value="Reflex"
+    />
+  <property name="project.vendor"
+    value="Stefano Chizzolini"
+    />
+  <property name="project.namespace.root"
+    value="it.stefanochizzolini.reflex"
+    />
+
+  <property name="package.file"
+    value="${package.dir}/${package.name}.jar"
+    />
+
+  <target name="clean"
+    description="Generated content clean up"
+    >
+    <delete dir="${compile.dir}"/>
+    <delete dir="${package.dir}"/>
+  </target>
+
+  <target name="compile"
+    description="Source compilation"
+    >
+    <mkdir dir="${compile.dir}"/>
+    <javac
+      debug="true"
+      destdir="${compile.dir}"
+      srcdir="${src.dir}"
+      />
+  </target>
+
+  <target name="package"
+    depends="compile"
+    description="Package generation"
+    >
+    <mkdir dir="${package.dir}"/>
+    <jar destfile="${package.file}">
+      <fileset dir="${compile.dir}">
+        <include name="**/*.class"/>
+      </fileset>
+      <manifest>
+        <attribute name="Specification-Title"
+          value="${project.title}"
+          />
+        <attribute name="Specification-Version"
+          value="${project.version}"
+          />
+        <attribute name="Specification-Vendor"
+          value="${project.vendor}"
+          />
+        <attribute name="Implementation-Title"
+          value="${project.namespace.root}"
+          />
+        <attribute name="Implementation-Version"
+          value="${project.version}"
+          />
+        <attribute name="Implementation-Vendor"
+          value="${project.vendor}"
+          />
+      </manifest>
+    </jar>
+  </target>
+</project>

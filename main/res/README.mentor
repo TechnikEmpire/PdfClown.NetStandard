@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  xmlns:xl="http://www.w3.org/1999/xlink"
+  >
+  <title>Additional resources</title>
+  <tip>Material supporting PDF Clown distribution</tip>
+  <description>
+    <db:para>This section contains material related to the PDF Clown distribution, such as stylesheets and documentation in source format.</db:para>
+  </description>
+</resource>

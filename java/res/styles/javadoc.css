@@ -1,0 +1,98 @@
+/*
+  PDF Clown Javadoc style sheet
+*/
+body
+{
+  background-color: white;
+  color:black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11pt;
+}
+a
+{
+  text-decoration: none;
+}
+a, a:visited
+{
+  color: blue;
+}
+h1
+{
+  font-size: 200%;
+  line-height:105%;
+}
+h1, h2, h3, h4, h5, h6
+{
+  font-family: Courier New;
+  letter-spacing:.1em;
+}
+pre
+{
+  padding: .5em 1em;
+}
+.TableHeadingColor
+{
+  background: #6495ED;
+  color:white;
+}
+.TableHeadingColor th
+{
+  text-align: center;
+}
+.TableSubHeadingColor 
+{
+  background: #E6E6FA;
+  color:gray;
+}
+.TableSubHeadingColor th
+{
+  text-align: right;
+}
+.TableRowColor
+{}
+.TableRowColor td
+{
+  border: 0;
+  border-bottom: 1px solid black;
+}
+.FrameTitleFont, .FrameHeadingFont, .FrameItemFont 
+{
+  border-width:0; 
+  font-size: 100%;
+}
+.FrameHeadingFont, .FrameItemFont 
+{
+  font-size:  90%;
+}
+.NavBarCell1
+{
+  background-color: white;
+  color: #000000;
+  padding: .15em .5em;
+  vertical-align: middle;
+}
+.NavBarCell1Rev
+{
+  background-color: black;
+  color: #FFFFFF;
+  vertical-align: middle;
+}
+.NavBarFont1
+{
+  color: black;
+}
+.NavBarFont1Rev
+{
+  color: white;
+}
+.NavBarCell2
+{
+  background-color: white;
+  color: black;
+  padding: .2em 1em;
+  text-align: right;
+}
+.NavBarCell3
+{
+  display:none;
+}

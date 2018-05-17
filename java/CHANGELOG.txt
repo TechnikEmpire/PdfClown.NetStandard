@@ -1,0 +1,32 @@
+CHANGELOG
+PDF Clown Project [../main/README.html] > PDF Clown for Java [README.html] > 
+
+
+Project version: 0.1.2 - CHANGELOG revision: 0 (2013-02-04)
+
+---------------
+Introduction
+---------------
+This is a coarsely-grained record of major changes occurred specifically to the Java implementation of PDF Clown.
+
+For common changes to the PDF Clown Project, please see WHATSNEW [../main/WHATSNEW.html].
+
+
+---------------
+Version 0.0.8
+---------------
+Release date: 2010-08-21
+Backward compatibility: false
+
+Migrated to Java 6 platform [http://java.sun.com].
+
+
+---------------
+Resources
+---------------
+ * Navigation:
+  * Current directory [.]: browse current section contents
+  * Parent section [README.html]: move to parent section
+  * Previous section [pdfclown.samples.web/README.html]: move to previous section
+  * Next section [../dotNET/README.html]: move to next section
+  * INDEX [../main/INDEX.html]: move to the distribution map

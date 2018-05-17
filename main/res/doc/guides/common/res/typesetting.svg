@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="3in" height="2.15in" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css"><![CDATA[
+      svg
+      {
+        stroke: #000000;
+        stroke-width: 1px;
+        font-size: 14;
+      }
+      text.layerTitle
+      {
+        text-anchor: start;
+      }
+      text.layerCoreClass
+      {
+        text-anchor: middle;
+      }
+    ]]></style>
+  </defs>
+  <title>PDF Clown Typesetting</title>
+  <desc>Typographic composition stack of PDF Clown</desc>
+  <g transform="scale(0.5)">
+    <g transform="translate(0,0)">
+      <rect x="0" y="0" width="400" height="50" style="fill:#FFFFFF;"/>
+      <text x="5" y="20" class="layerTitle">Flow typesetting</text>
+      <g transform="translate(195,5)">
+        <rect x="0" y="0" width="200" height="40" style="fill:#A4D2FF;"/>
+        <text x="100" y="25" class="layerCoreClass">FlowFilter</text>
+      </g>
+    </g>
+    <g transform="translate(0,55)">
+      <rect x="0" y="0" width="400" height="50" style="fill:#FFFFFF;"/>
+      <text x="5" y="20" class="layerTitle">Positional typesetting</text>
+      <g transform="translate(195,5)">
+        <rect x="0" y="0" width="200" height="40" style="fill:#A4D2FF;"/>
+        <text x="100" y="25" class="layerCoreClass">BlockFilter</text>
+      </g>
+    </g>
+    <g transform="translate(0,110)">
+      <rect x="0" y="0" width="400" height="50" style="fill:#FFFFFF;"/>
+      <text x="5" y="20" class="layerTitle">Primitive typesetting</text>
+      <g transform="translate(195,5)">
+        <rect x="0" y="0" width="200" height="40" style="fill:#A4D2FF;"/>
+        <text x="100" y="25" class="layerCoreClass">PrimitiveFilter</text>
+      </g>
+    </g>
+    <g transform="translate(0,200)">
+      <rect x="0" y="0" width="400" height="95" style="fill:#FFFFFF;"/>
+      <text x="5" y="20" class="layerTitle">Content streaming</text>
+      <g transform="translate(195,5)">
+        <rect x="0" y="0" width="200" height="40" style="fill:#A4D2FF;"/>
+        <text x="100" y="25" class="layerCoreClass">ContentScanner</text>
+      </g>
+      <g transform="translate(195,50)">
+        <rect x="0" y="0" width="200" height="40" style="fill:#A4D2FF;"/>
+        <text x="100" y="25" class="layerCoreClass">Contents</text>
+      </g>
+    </g>
+    <g transform="translate(350,0) scale(1,0.75)">
+      <polygon points="50,0 60,0 60,170 70,160 50,215 30,160 40,170 40,0 50,0" style="fill:#FFC662;"/>
+    </g>
+    <g transform="translate(350,160) scale(1,0.62)">
+      <polygon points="50,0 60,0 60,170 70,160 50,215 30,160 40,170 40,0 50,0" style="fill:#FFC662;"/>
+    </g>
+  </g>
+</svg>

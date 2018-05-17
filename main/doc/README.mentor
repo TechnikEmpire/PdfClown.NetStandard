@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resource
+  xml:lang="en"
+  xmlns="http://www.stefanochizzolini.it/ns/mentor" nsVersion="0.2"
+  xmlns:db="http://docbook.org/ns/docbook" db:version="5.0"
+  >
+  <title>Documentation</title>
+  <tip>PDF Clown common guides</tip>
+  <description>
+    <db:para>This section hosts the documentation of PDF Clown shared among all its implementations.</db:para>
+  </description>
+</resource>
