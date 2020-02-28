@@ -92,7 +92,8 @@ namespace org.pdfclown.documents.contents
     public double GetWidth(
       char textChar
       )
-    {return font.GetWidth(textChar, fontSize) * scaleX / scaleY;}
+	// PK - 2017-09-15 - font can be null, which throws an exception below, so fall back on fontSize for width calculation
+    {return (font?.GetWidth(textChar, fontSize) ?? fontSize) * scaleX / scaleY;}
 
     public TextRenderModeEnum RenderMode
     {get{return renderMode;}}
