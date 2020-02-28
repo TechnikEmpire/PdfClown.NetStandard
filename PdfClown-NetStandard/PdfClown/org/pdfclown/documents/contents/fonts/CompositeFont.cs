@@ -207,7 +207,8 @@ namespace org.pdfclown.documents.contents.fonts
       }
       // Default glyph width.
       {
-        PdfInteger defaultWidthObject = (PdfInteger)BaseDataObject[PdfName.DW];
+	    // PK 2017-03-08 - Changed type from PdfInteger to IPdfNumber to avoid ClassCastException and allow for more granular font sizes
+		IPdfNumber defaultWidthObject = (IPdfNumber)BaseDataObject[PdfName.DW];
         if(defaultWidthObject != null)
         {DefaultWidth = defaultWidthObject.IntValue;}
       }

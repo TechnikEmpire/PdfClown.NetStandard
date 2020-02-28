@@ -103,7 +103,8 @@ namespace org.pdfclown.documents.contents.objects
       */
 
       double contextHeight = state.Scanner.ContextSize.Height;
-      Font font = state.Font;
+	  // PK - 2017-09-15 - state.Font can be null, which throws an exception below, so fall back on standard Courier
+	  Font font = state.Font ?? new StandardType1Font(((Page) state.Scanner.RootLevel.ContentContext).Document, StandardType1Font.FamilyEnum.Courier, false, false);
       double fontSize = state.FontSize;
       double scaledFactor = Font.GetScalingFactor(fontSize) * state.Scale;
       bool wordSpaceSupported = !(font is CompositeFont);

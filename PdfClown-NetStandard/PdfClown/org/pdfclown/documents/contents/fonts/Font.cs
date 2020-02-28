@@ -338,10 +338,12 @@ namespace org.pdfclown.documents.contents.fonts
         {codeBuffers[codeBufferIndex] = new byte[codeBufferIndex];}
         int index = 0;
         int codeLength = code.Length;
-        int codeBufferSize = 1;
+		// PK 2017-03-08 - tweaks to codeBuffer array to avoid ArrayIndexOutOfBoundsException if character encoding isn't quite as expected
+        int codeBufferSize = codeBuffers.Length > 0 ? 1 : 0;
         while(index < codeLength)
         {
-          byte[] codeBuffer = codeBuffers[codeBufferSize];
+		  // PK 2017-03-08 - tweaks to codeBuffer array to avoid ArrayIndexOutOfBoundsException if character encoding isn't quite as expected
+          byte[] codeBuffer = codeBuffers.Length > codeBufferSize ? codeBuffers[codeBufferSize] : new byte[codeBufferSize];
           System.Buffer.BlockCopy(code, index, codeBuffer, 0, codeBufferSize);
           int textChar = 0;
           if(!codes.TryGetValue(new ByteArray(codeBuffer), out textChar))
@@ -388,8 +390,9 @@ namespace org.pdfclown.documents.contents.fonts
       {return defaultCode;}
       set
       {
-        if(!glyphIndexes.ContainsKey(value))
-          throw new EncodeException((char)value);
+	    // PK 2017-03-08 - skip EncodeException, which should just result in a "?" or rectangle appearing instead of the correct character
+        //if(!glyphIndexes.ContainsKey(value))
+        //  throw new EncodeException((char)value);
 
         defaultCode = value;
       }
@@ -810,7 +813,8 @@ namespace org.pdfclown.documents.contents.fonts
         else if(codePoints.Contains((int)' '))
         {DefaultCode = ' ';}
         else
-        {DefaultCode = codePoints.First();}
+		// PK 2017-03-08 - allow for encoding to fail, which should just result in a "?" or rectangle appearing instead of the correct character
+        {DefaultCode = codePoints.FirstOrDefault();}
       }
     }
 
